@@ -8,7 +8,7 @@
 
 class PGM : public IMAGE{
 public:
-    PGM(char* bytes, int size);
+    PGM(char* data, int size);
 };
 
 #endif

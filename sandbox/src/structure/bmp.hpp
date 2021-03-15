@@ -8,7 +8,7 @@
 
 class BMP : public IMAGE{
 public:
-    BMP(char* bytes, int size);
+    BMP(char* data, int size);
 };
 
 #endif

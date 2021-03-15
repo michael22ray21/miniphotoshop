@@ -8,7 +8,7 @@
 
 class PPM : public IMAGE{
 public:
-    PPM(char* bytes, int size);
+    PPM(char* data, int size);
 };
 
 #endif

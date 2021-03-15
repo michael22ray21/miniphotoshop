@@ -8,7 +8,7 @@
 
 class PBM : public IMAGE{
 public:
-    PBM(char* bytes, int size);
+    PBM(char* data, int size);
 };
 
 #endif

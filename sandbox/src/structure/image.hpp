@@ -1,18 +1,19 @@
 #ifndef IMAGE_HPP
 #define IMAGE_HPP
 
+#include <fstream>
 #include <iostream>
 #include "../utils/reader.hpp"
-#define uchar unsigned char
+#define ushort unsigned short
 
 class IMAGE{
 public:
     int width, height, bitCount, fileSize, headSize;
     char* header;
-    uchar** pixels;
-    uchar** r;
-    uchar** g;
-    uchar** b;
+    ushort** pixels;
+    ushort** r;
+    ushort** g;
+    ushort** b;
 
     ~IMAGE();
 };

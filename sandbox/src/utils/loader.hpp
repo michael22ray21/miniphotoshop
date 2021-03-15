@@ -1,3 +1,4 @@
 #include <fstream>
 
-char* fileLoader(std::string filename, int* filesize);
+char* imageLoader(std::string filename);
+int getFileSize(std::string filename);

@@ -32,4 +32,5 @@ include header file like this -
 %include "gfg.h" 
 */
 %include <std_string.i>
+%include <cpointer.i>
 %include "structure.i"
