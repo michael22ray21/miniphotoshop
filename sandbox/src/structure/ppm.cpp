@@ -22,13 +22,18 @@ PPM::PPM(std::string filename) : IMAGE(filename){
     int height = nextInt(data, size, &pointer);
     int maxValue = nextInt(data, size, &pointer);
 
+
     this->height = height;
     this->width = width;
     this->bitCount = 24;
     this->fileSize = size;
-    this->pixels = (uchar**) malloc(height*sizeof(uchar*));
+    this->r = (uchar**) malloc(height*sizeof(uchar*));
+    this->g = (uchar**) malloc(height*sizeof(uchar*));
+    this->b = (uchar**) malloc(height*sizeof(uchar*));
     for (int i = 0; i < height; i++){
-        this->pixels[i] = (uchar*) malloc(width*sizeof(uchar));
+        this->r[i] = (uchar*) malloc(width*sizeof(uchar));
+        this->g[i] = (uchar*) malloc(width*sizeof(uchar));
+        this->b[i] = (uchar*) malloc(width*sizeof(uchar));
     }
     
     this->header = (char*) malloc(sizeof(char)*(pointer));
@@ -37,6 +42,7 @@ PPM::PPM(std::string filename) : IMAGE(filename){
     for(int i = 0; i < pointer; i++){
         this->header[i] = data[i];
     }
+
 
     if (data[0] == 'P' && data[1] == '3') {
     //   ASCII

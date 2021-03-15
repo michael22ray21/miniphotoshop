@@ -34,6 +34,7 @@ class App :
         self.ori_canvas.place(x = 50, y = 121)
 
     def open_image(self, filename) :
+        # print(filename)
         if filename.endswith('.pbm') :
             self.ori_image = im.PBM(filename)
         elif filename.endswith('.bmp') :
