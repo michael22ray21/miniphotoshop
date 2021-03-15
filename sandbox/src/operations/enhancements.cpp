@@ -6,11 +6,11 @@ void brighten(IMAGE *target, double multiplier) {
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
         if (target->r == NULL){
-            target->pixels[i][j] *= multiplier;
+            target->pixels[i][j] = clip((int) target->pixels[i][j] * multiplier, 0, 255);
         } else {
-            target->r[i][j] *= multiplier;
-            target->g[i][j] *= multiplier;
-            target->b[i][j] *= multiplier;
+            target->r[i][j] = clip((int) target->r[i][j] * multiplier, 0, 255);
+            target->g[i][j] = clip((int) target->g[i][j] * multiplier, 0, 255);
+            target->b[i][j] = clip((int) target->b[i][j] * multiplier, 0, 255);
         }
     }
   }
@@ -33,7 +33,7 @@ void contrastStretch(IMAGE* target, int rMin, int rMax) {
             else if (px > rMax)
                 px = 255;
             else
-                px = (px - rMin)*255/range;
+                px = clip(round((double) (px - rMin)*255/range), 0, 255);
 
             target->pixels[i][j] = px;
         } else{
@@ -43,7 +43,7 @@ void contrastStretch(IMAGE* target, int rMin, int rMax) {
             else if (r > rMax)
                 r = 255;
             else
-                r = (r - rMin)*255/range;
+                r = clip(round((double) (r - rMin)*255/range), 0, 255);
 
             uchar g = target->g[i][j];
             if ( g < rMin)
@@ -51,7 +51,7 @@ void contrastStretch(IMAGE* target, int rMin, int rMax) {
             else if (g > rMax)
                 g = 255;
             else
-                g = (g - rMin)*255/range;
+                g = clip(round((double) (g - rMin)*255/range), 0, 255);
 
             uchar b = target->b[i][j];
             if ( b < rMin)
@@ -59,7 +59,7 @@ void contrastStretch(IMAGE* target, int rMin, int rMax) {
             else if (b > rMax)
                 b = 255;
             else
-                b = (b - rMin)*255/range;
+                b = clip(round((double) (b - rMin)*255/range), 0, 255);
 
             target->r[i][j] = r;
             target->g[i][j] = g;
@@ -81,19 +81,19 @@ void logTransform(IMAGE* target, double c) {
     for (int j = 0; j < target->width; j++) {
         if (depth == 1){
             uchar px = target->pixels[i][j];
-            px = c * log(1 + px);
+            px = clip((int)c * log(1 + px), 0, 255);
             target->pixels[i][j] = px;
         } else {
             uchar r = target->r[i][j];
-            r = c * log(1 + r);
+            r = clip((int)c * log(1 + r), 0, 255);
             target->r[i][j] = r;
 
             uchar g = target->g[i][j];
-            g = c * log(1 + g);
+            g = clip((int)c * log(1 + g), 0, 255);
             target->g[i][j] = g;
 
             uchar b = target->b[i][j];
-            b = c * log(1 + b);
+            b = clip((int)c * log(1 + b), 0, 255);
             target->b[i][j] = b;
         }
         
@@ -113,19 +113,19 @@ void inverseLog(IMAGE* target, double c) {
         for (int j = 0; j < target->width; j++) {
             if (depth == 1){
                 uchar px = target->pixels[i][j];
-                px = c * (exp(px)-1);
+                px = clip((int)c * (exp(px)-1), 0, 255);
                 target->pixels[i][j] = px;
             } else {
                 uchar r = target->r[i][j];
-                r = c * (exp(r)-1);
+                r = clip((int)c * (exp(r)-1), 0, 255);
                 target->r[i][j] = r;
 
                 uchar g = target->g[i][j];
-                g = c * (exp(g)-1);
+                g = clip((int)c * (exp(g)-1), 0, 255);
                 target->g[i][j] = g;
 
                 uchar b = target->b[i][j];
-                b = c * (exp(b)-1);
+                b = clip((int)c * (exp(b)-1), 0, 255);
                 target->b[i][j] = b;
             }
             
@@ -140,11 +140,11 @@ void power(IMAGE* target, double c) {
             uchar px = target->pixels[i][j];
             target->pixels[i][j] = clip(round((double) pow(px, c)), 0, 255);
         } else {
-            uchar r = target->pixels[i][j];
+            uchar r = target->r[i][j];
             target->pixels[i][j] = clip(round((double) pow(r, c)), 0, 255);
-            uchar g = target->pixels[i][j];
+            uchar g = target->g[i][j];
             target->pixels[i][j] = clip(round((double) pow(g, c)), 0, 255);
-            uchar b = target->pixels[i][j];
+            uchar b = target->b[i][j];
             target->pixels[i][j] = clip(round((double) pow(b, c)), 0, 255);
         }
     }
