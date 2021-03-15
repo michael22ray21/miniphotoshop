@@ -13,6 +13,7 @@ class App :
         self.ori_image_source = ori_image_source
 
         self.open_image(self.ori_image_source)
+        self.make_ori_image_canvas(self.ori_image.width, self.ori_image.height)
 
         # select file button
         self.ori_select_file = tk.Button(self.window, text = 'Select file', width = 8, command = self.open_ori_file)
