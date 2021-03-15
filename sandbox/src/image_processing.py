@@ -71,9 +71,7 @@ class IMAGE(object):
     headSize = property(_image_processing.IMAGE_headSize_get, _image_processing.IMAGE_headSize_set)
     header = property(_image_processing.IMAGE_header_get, _image_processing.IMAGE_header_set)
     pixels = property(_image_processing.IMAGE_pixels_get, _image_processing.IMAGE_pixels_set)
-    r = property(_image_processing.IMAGE_r_get, _image_processing.IMAGE_r_set)
-    g = property(_image_processing.IMAGE_g_get, _image_processing.IMAGE_g_set)
-    b = property(_image_processing.IMAGE_b_get, _image_processing.IMAGE_b_set)
+    rgbPixels = property(_image_processing.IMAGE_rgbPixels_get, _image_processing.IMAGE_rgbPixels_set)
 
     def __init__(self, *args):
         _image_processing.IMAGE_swiginit(self, _image_processing.new_IMAGE(*args))

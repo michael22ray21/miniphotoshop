@@ -50,23 +50,23 @@ void applyFilterMedianStrategy(IMAGE* target, int size) {
         for (int j_k = 0; j_k < (int) size; j_k++) {
           int i_target = std::max(0, std::min(target->height - 1, i + rowOffset + i_k));
           int j_target = std::max(0, std::min(target->width - 1, j + colOffset + j_k));
-          if (temp->r == NULL){
+          if (temp->rgbPixels == NULL){
             pixels.push_back(temp->pixels[i_target][j_target]);
           } else {
-            r.push_back(temp->r[i_target][j_target]);
-            g.push_back(temp->g[i_target][j_target]);
-            b.push_back(temp->b[i_target][j_target]);
+            r.push_back(temp->rgbPixels[i_target][j_target][0]);
+            g.push_back(temp->rgbPixels[i_target][j_target][1]);
+            b.push_back(temp->rgbPixels[i_target][j_target][2]);
           }
         }
       }
-      if(temp->r == NULL){
+      if(temp->rgbPixels == NULL){
         sort(pixels.begin(), pixels.end());
         target->pixels[i][j] = pixels[pixels.size() / 2];
       } else {
         manualSort(r, g, b);
-        target->r[i][j] = r[r.size() / 2];
-        target->g[i][j] = g[g.size() / 2];
-        target->b[i][j] = b[b.size() / 2];
+        target->rgbPixels[i][j][0] = r[r.size() / 2];
+        target->rgbPixels[i][j][1] = g[g.size() / 2];
+        target->rgbPixels[i][j][2] = b[b.size() / 2];
       }
     }
   }
@@ -84,15 +84,15 @@ void applyFilterMaxStrategy(IMAGE* target, int size) {
         for (int j_k = 0; j_k < (int) size; j_k++) {
           int i_target = std::max(0, std::min(target->height - 1, i + rowOffset + i_k));
           int j_target = std::max(0, std::min(target->width - 1, j + colOffset + j_k));
-          if (temp->r == NULL){
+          if (temp->rgbPixels == NULL){
             uchar prev = temp->pixels[i_target][j_target];
             if (prev > new_pixel[0]) {
               new_pixel[0] = prev;
             }
           } else {
-            uchar prevr = temp->r[i_target][j_target];
-            uchar prevg = temp->g[i_target][j_target];
-            uchar prevb = temp->b[i_target][j_target];
+            uchar prevr = temp->rgbPixels[i_target][j_target][0];
+            uchar prevg = temp->rgbPixels[i_target][j_target][1];
+            uchar prevb = temp->rgbPixels[i_target][j_target][2];
             if (magn(prevr, prevg, prevb) > magn(new_pixel[0], new_pixel[1], new_pixel[2])) {
               new_pixel[0] = prevr;
               new_pixel[1] = prevg;
@@ -101,12 +101,12 @@ void applyFilterMaxStrategy(IMAGE* target, int size) {
           }
         }
       }
-      if(temp->r == NULL){
+      if(temp->rgbPixels == NULL){
         target->pixels[i][j] = new_pixel[0];
       } else {
-        target->r[i][j] = new_pixel[0];
-        target->g[i][j] = new_pixel[1];
-        target->b[i][j] = new_pixel[2];
+        for (int k = 0; k < 3; k++){
+          target->rgbPixels[i][j][k] = new_pixel[k];
+        }
       }
     }
   }
@@ -125,15 +125,15 @@ void applyFilterMinStrategy(IMAGE* target, int size) {
         for (int j_k = 0; j_k < (int) size; j_k++) {
           int i_target = std::max(0, std::min(target->height - 1, i + rowOffset + i_k));
           int j_target = std::max(0, std::min(target->width - 1, j + colOffset + j_k));
-          if (temp->r == NULL){
+          if (temp->rgbPixels == NULL){
             uchar prev = temp->pixels[i_target][j_target];
             if (prev < new_pixel[0]) {
               new_pixel[0] = prev;
             }
           } else {
-            uchar prevr = temp->r[i_target][j_target];
-            uchar prevg = temp->g[i_target][j_target];
-            uchar prevb = temp->b[i_target][j_target];
+            uchar prevr = temp->rgbPixels[i_target][j_target][0];
+            uchar prevg = temp->rgbPixels[i_target][j_target][1];
+            uchar prevb = temp->rgbPixels[i_target][j_target][2];
             if (magn(prevr, prevg, prevb) < magn(new_pixel[0], new_pixel[1], new_pixel[2])) {
               new_pixel[0] = prevr;
               new_pixel[1] = prevg;
@@ -142,12 +142,12 @@ void applyFilterMinStrategy(IMAGE* target, int size) {
           }
         }
       }
-      if(temp->r == NULL){
+      if(temp->rgbPixels == NULL){
         target->pixels[i][j] = new_pixel[0];
       } else {
-        target->r[i][j] = new_pixel[0];
-        target->g[i][j] = new_pixel[1];
-        target->b[i][j] = new_pixel[2];
+        for (int k = 0; k < 3; k++){
+          target->rgbPixels[i][j][k] = new_pixel[k];
+        }
       }
     }
   }

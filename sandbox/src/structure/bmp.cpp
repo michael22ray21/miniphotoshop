@@ -38,14 +38,13 @@ BMP::BMP(std::string filename) : IMAGE(filename){
     this->width = width;
     this->bitCount = bitCount;
     this->fileSize = size;
-    this->r = (uchar**) malloc(height*sizeof(uchar*));
-    this->g = (uchar**) malloc(height*sizeof(uchar*));
-    this->b = (uchar**) malloc(height*sizeof(uchar*));
-    for (int i = 0; i < height; i++){
-        this->r[i] = (uchar*) malloc(width*sizeof(uchar));
-        this->g[i] = (uchar*) malloc(width*sizeof(uchar));
-        this->b[i] = (uchar*) malloc(width*sizeof(uchar));
-    }
+    this->rgbPixels = (uchar***) malloc(this->height*sizeof(uchar**));
+        for (int i = 0; i < this->height; i++){
+            this->rgbPixels[i] = (uchar**) malloc(this->width*sizeof(uchar*));
+            for (int j = 0; j < this->width; j++){
+                this->rgbPixels[i][j] = (uchar*) malloc(3*sizeof(uchar));
+            }
+        }
 
     this->header = (char*) malloc(sizeof(char)*(pointer));
     this->headSize = pointer;
@@ -56,20 +55,14 @@ BMP::BMP(std::string filename) : IMAGE(filename){
     for (int i = height - 1; i >= 0; i--) {
         for (int j = 0; j < width; j++) {
             if (bitCount == 24) {
-                uchar b = data[pointer];
-                uchar g = data[pointer + 1];
-                uchar r = data[pointer + 2];
-                this->r[i][j] = r;
-                this->g[i][j] = g;
-                this->b[i][j] = b;
+                this->rgbPixels[i][j][0] = data[pointer];
+                this->rgbPixels[i][j][1] = data[pointer+1];
+                this->rgbPixels[i][j][2] = data[pointer+2];
                 pointer += 3;
             } else if (bitCount == 8) {
-                uchar b = data[pointer];
-                uchar g = data[pointer];
-                uchar r = data[pointer];
-                this->r[i][j] = r;
-                this->g[i][j] = g;
-                this->b[i][j] = b;
+                this->rgbPixels[i][j][0] = data[pointer];
+                this->rgbPixels[i][j][1] = data[pointer];
+                this->rgbPixels[i][j][2] = data[pointer];
                 pointer += 1;
             }
         }

@@ -1,4 +1,5 @@
 #include "loader.hpp"
+#include "../structure/image.hpp"
 
 char* imageLoader(std::string filename){
     std::ifstream image_file;

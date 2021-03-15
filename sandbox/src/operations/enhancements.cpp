@@ -5,12 +5,12 @@
 void brighten(IMAGE *target, double multiplier) {  
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
-        if (target->r == NULL){
+        if (target->rgbPixels == NULL){
             target->pixels[i][j] = clip((int) target->pixels[i][j] * multiplier, 0, 255);
         } else {
-            target->r[i][j] = clip((int) target->r[i][j] * multiplier, 0, 255);
-            target->g[i][j] = clip((int) target->g[i][j] * multiplier, 0, 255);
-            target->b[i][j] = clip((int) target->b[i][j] * multiplier, 0, 255);
+            for (int k = 0; k < 3; k++){
+                target->rgbPixels[i][j][k] = clip((int) target->rgbPixels[i][j][k] * multiplier, 0, 255);
+            }
         }
     }
   }
@@ -18,7 +18,7 @@ void brighten(IMAGE *target, double multiplier) {
 
 void contrastStretch(IMAGE* target, int rMin, int rMax) {
   int range = rMax - rMin, depth=0;
-  if (target->r == NULL){
+  if (target->rgbPixels == NULL){
     depth = 1;
   } else {
     depth = 3;
@@ -37,33 +37,16 @@ void contrastStretch(IMAGE* target, int rMin, int rMax) {
 
             target->pixels[i][j] = px;
         } else{
-            uchar r = target->r[i][j];
-            if ( r < rMin)
-                r = 0;
-            else if (r > rMax)
-                r = 255;
-            else
-                r = clip(round((double) (r - rMin)*255/range), 0, 255);
-
-            uchar g = target->g[i][j];
-            if ( g < rMin)
-                g = 0;
-            else if (g > rMax)
-                g = 255;
-            else
-                g = clip(round((double) (g - rMin)*255/range), 0, 255);
-
-            uchar b = target->b[i][j];
-            if ( b < rMin)
-                b = 0;
-            else if (b > rMax)
-                b = 255;
-            else
-                b = clip(round((double) (b - rMin)*255/range), 0, 255);
-
-            target->r[i][j] = r;
-            target->g[i][j] = g;
-            target->b[i][j] = b;
+            for (int k = 0; k < 3; k++){
+                uchar rgb = target->rgbPixels[i][j][k];
+                if ( rgb < rMin)
+                    rgb = 0;
+                else if (rgb > rMax)
+                    rgb = 255;
+                else
+                    rgb = clip(round((double) (rgb - rMin)*255/range), 0, 255);
+                target->rgbPixels[i][j][k] = rgb;
+            }
         }
     }
   }
@@ -71,7 +54,7 @@ void contrastStretch(IMAGE* target, int rMin, int rMax) {
 
 void logTransform(IMAGE* target, double c) {
   int depth=0;
-  if (target->r == NULL){
+  if (target->rgbPixels == NULL){
     depth = 1;
   } else {
     depth = 3;
@@ -84,17 +67,11 @@ void logTransform(IMAGE* target, double c) {
             px = clip((int)c * log(1 + px), 0, 255);
             target->pixels[i][j] = px;
         } else {
-            uchar r = target->r[i][j];
-            r = clip((int)c * log(1 + r), 0, 255);
-            target->r[i][j] = r;
-
-            uchar g = target->g[i][j];
-            g = clip((int)c * log(1 + g), 0, 255);
-            target->g[i][j] = g;
-
-            uchar b = target->b[i][j];
-            b = clip((int)c * log(1 + b), 0, 255);
-            target->b[i][j] = b;
+            for (int k = 0; k < 3; k++){
+                uchar rgb = target->rgbPixels[i][j][k];
+                rgb = clip((int)c * log(1 + rgb), 0, 255);
+                target->rgbPixels[i][j][k] = rgb;
+            }
         }
         
     }
@@ -103,7 +80,7 @@ void logTransform(IMAGE* target, double c) {
 
 void inverseLog(IMAGE* target, double c) {
     int depth=0;
-    if (target->r == NULL){
+    if (target->rgbPixels == NULL){
         depth = 1;
     } else {
         depth = 3;
@@ -116,19 +93,12 @@ void inverseLog(IMAGE* target, double c) {
                 px = clip((int)c * (exp(px)-1), 0, 255);
                 target->pixels[i][j] = px;
             } else {
-                uchar r = target->r[i][j];
-                r = clip((int)c * (exp(r)-1), 0, 255);
-                target->r[i][j] = r;
-
-                uchar g = target->g[i][j];
-                g = clip((int)c * (exp(g)-1), 0, 255);
-                target->g[i][j] = g;
-
-                uchar b = target->b[i][j];
-                b = clip((int)c * (exp(b)-1), 0, 255);
-                target->b[i][j] = b;
+                for (int k = 0; k < 3; k++){
+                    uchar rgb = target->rgbPixels[i][j][k];
+                    rgb = clip((int)c * (exp(rgb)-1), 0, 255);
+                    target->rgbPixels[i][j][k] = rgb;
+                }
             }
-            
         }
     }
 }
@@ -136,16 +106,14 @@ void inverseLog(IMAGE* target, double c) {
 void power(IMAGE* target, double c) {
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
-        if (target->r == NULL){
+        if (target->rgbPixels == NULL){
             uchar px = target->pixels[i][j];
             target->pixels[i][j] = clip(round((double) pow(px, c)), 0, 255);
         } else {
-            uchar r = target->r[i][j];
-            target->pixels[i][j] = clip(round((double) pow(r, c)), 0, 255);
-            uchar g = target->g[i][j];
-            target->pixels[i][j] = clip(round((double) pow(g, c)), 0, 255);
-            uchar b = target->b[i][j];
-            target->pixels[i][j] = clip(round((double) pow(b, c)), 0, 255);
+            for (int k = 0; k < 3; k++){
+                uchar rgb = target->rgbPixels[i][j][k];
+                target->rgbPixels[i][j][k] = clip(round((double) pow(rgb, c)), 0, 255);
+            }
         }
     }
   }
@@ -153,7 +121,7 @@ void power(IMAGE* target, double c) {
 
 void graySlicing(IMAGE* target, int rMin, int rMax) {
   int depth=0;
-    if (target->r == NULL){
+    if (target->rgbPixels == NULL){
         depth = 1;
     } else {
         depth = 3;
@@ -169,24 +137,14 @@ void graySlicing(IMAGE* target, int rMin, int rMax) {
                 px = 0;
             target->pixels[i][j] = px;
         } else {
-            uchar r = target->r[i][j];
-            if (r > rMin && r<rMax)
-                r = 255;
-            else
-                r = 0;
-            target->r[i][j] = r;
-            uchar g = target->g[i][j];
-            if (g > rMin && g<rMax)
-                g = 255;
-            else
-                g = 0;
-            target->g[i][j] = g;
-            uchar b = target->b[i][j];
-            if (b > rMin && b<rMax)
-                b = 255;
-            else
-                b = 0;
-            target->pixels[i][j] = b;
+            for (int k = 0; k < 3; k++){
+                uchar rgb = target->rgbPixels[i][j][k];
+                if (rgb > rMin && rgb<rMax)
+                    rgb = 255;
+                else
+                    rgb = 0;
+                target->rgbPixels[i][j][k] = rgb;
+            }
         }
     }
   }
@@ -194,7 +152,7 @@ void graySlicing(IMAGE* target, int rMin, int rMax) {
 
 void bitSlicing(IMAGE* target, int bit) {
     int depth=0;
-    if (target->r == NULL){
+    if (target->rgbPixels == NULL){
         depth = 1;
     } else {
         depth = 3;
@@ -210,24 +168,14 @@ void bitSlicing(IMAGE* target, int bit) {
                     px = 0;
                 target->pixels[i][j] = px;
             } else {
-                uchar r = target->r[i][j];
-                if (r & (1<<bit))
-                    r = 255;
-                else
-                    r = 0;
-                target->r[i][j] = r;
-                uchar g = target->g[i][j];
-                if (g & (1<<bit))
-                    g = 255;
-                else
-                    g = 0;
-                target->g[i][j] = g;
-                uchar b = target->b[i][j];
-                if (b & (1<<bit))
-                    b = 255;
-                else
-                    b = 0;
-                target->pixels[i][j] = b;
+                for (int k = 0; k < 3; k++){
+                    uchar rgb = target->rgbPixels[i][j][k];
+                    if (rgb & (1<<bit))
+                        rgb = 255;
+                    else
+                        rgb = 0;
+                    target->rgbPixels[i][j][k] = rgb;
+                }
             }
         }
     }

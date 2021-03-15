@@ -27,13 +27,12 @@ PPM::PPM(std::string filename) : IMAGE(filename){
     this->width = width;
     this->bitCount = 24;
     this->fileSize = size;
-    this->r = (uchar**) malloc(height*sizeof(uchar*));
-    this->g = (uchar**) malloc(height*sizeof(uchar*));
-    this->b = (uchar**) malloc(height*sizeof(uchar*));
-    for (int i = 0; i < height; i++){
-        this->r[i] = (uchar*) malloc(width*sizeof(uchar));
-        this->g[i] = (uchar*) malloc(width*sizeof(uchar));
-        this->b[i] = (uchar*) malloc(width*sizeof(uchar));
+    this->rgbPixels = (uchar***) malloc(this->height*sizeof(uchar**));
+    for (int i = 0; i < this->height; i++){
+        this->rgbPixels[i] = (uchar**) malloc(this->width*sizeof(uchar*));
+        for (int j = 0; j < this->width; j++){
+            this->rgbPixels[i][j] = (uchar*) malloc(3*sizeof(uchar));
+        }
     }
     
     this->header = (char*) malloc(sizeof(char)*(pointer));
@@ -48,18 +47,18 @@ PPM::PPM(std::string filename) : IMAGE(filename){
     //   ASCII
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                this->r[i][j] = (int) ((nextInt(data, size, &pointer) * 1.0 / maxValue) * 255) & 0xFF;
-                this->g[i][j] = (int) ((nextInt(data, size, &pointer) * 1.0 / maxValue) * 255) & 0xFF;
-                this->b[i][j] = (int) ((nextInt(data, size, &pointer) * 1.0 / maxValue) * 255) & 0xFF;
+                for (int k = 0; k < 3; k++){
+                    this->rgbPixels[i][j][k] = (int) ((nextInt(data, size, &pointer) * 1.0 / maxValue) * 255) & 0xFF;
+                }
             }
         }
     } else if (data[0] == 'P' && data[1] == '6') {
     //   BINARY
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                this->r[i][j] = data[pointer];
-                this->g[i][j] = data[pointer + 1];
-                this->b[i][j] = data[pointer + 2];
+                this->rgbPixels[i][j][0] = data[pointer];
+                this->rgbPixels[i][j][0] = data[pointer+1];
+                this->rgbPixels[i][j][0] = data[pointer+2];
                 pointer += 3;
             }
         }

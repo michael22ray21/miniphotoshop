@@ -5,7 +5,7 @@
 int** createHistogramDistribution(IMAGE* source) {
     int depth = 0;
     int** probs;
-    if (source->r == NULL){
+    if (source->rgbPixels == NULL){
         depth = 1;
         probs = new int*[1];
         probs[0] = new int[256];
@@ -33,12 +33,10 @@ int** createHistogramDistribution(IMAGE* source) {
     }else{
         for (int i = 0; i < source->height; i++) {
             for (int j = 0; j < source->width; j++) {
-                uchar r = source->r[i][j];
-                probs[0][r] += 1;
-                uchar g = source->g[i][j];
-                probs[1][g] += 1;
-                uchar b = source->b[i][j];
-                probs[2][b] += 1;
+                for (int k = 0; k < 3; k++){
+                    uchar rgb = source->rgbPixels[i][j][k];
+                    probs[k][rgb] += 1;
+                }
             }
         }
     }
@@ -51,9 +49,9 @@ int** createHistogramDistribution(IMAGE* source) {
         
     } else {
         for (int i = 1; i < 256; i++){
-            probs[0][i] += probs[0][i-1];
-            probs[1][i] += probs[1][i-1];
-            probs[2][i] += probs[2][i-1];
+            for (int k = 0; k < 3; k++){
+                probs[k][i] += probs[k][i-1];
+            }
         }
     }
 
@@ -62,7 +60,7 @@ int** createHistogramDistribution(IMAGE* source) {
 
 void applyHistogramEqualization(IMAGE* target) {
     int pxlen = 0;
-    if (target->r == NULL){
+    if (target->rgbPixels == NULL){
         pxlen = 1;
     } else {
         pxlen = 3;
@@ -73,21 +71,15 @@ void applyHistogramEqualization(IMAGE* target) {
     int dimen = target->width * target->height;
     for (int i = 0; i < target->height; i++) {
         for (int j = 0; j < target->width; j++) {
-            uchar px, r, g, b;
+            uchar px, rgb;
             if (pxlen == 1){
                 px = target->pixels[i][j];
-            } else {
-                r = target->r[i][j];
-                g = target->g[i][j];
-                b = target->b[i][j];
-            }
-
-            if (pxlen == 3) {
-                target->r[i][j] = clip((int) probs[0][r] * 255 / dimen, 0, 255);
-                target->g[i][j] = clip((int) probs[1][g] * 255 / dimen, 0, 255);
-                target->b[i][j] = clip((int) probs[2][b] * 255 / dimen, 0, 255);
-            } else {
                 target->pixels[i][j] = clip((int) probs[0][px] * 255 / dimen, 0, 255);
+            } else {
+                for (int k = 0; k < 3; k++){
+                    rgb = target->rgbPixels[i][j][k];
+                    target->rgbPixels[i][j][k] = clip((int) probs[k][rgb] * 255 / dimen, 0, 255);
+                }
             }
         }
     }
@@ -100,7 +92,7 @@ void applyHistogramEqualization(IMAGE* target) {
 
 void applyHistogramSpecification(IMAGE* target, IMAGE* specification) {
     int pxlen = 0;
-    if (target->r == NULL){
+    if (target->rgbPixels == NULL){
         pxlen = 1;
     } else {
         pxlen = 3;
@@ -135,14 +127,12 @@ void applyHistogramSpecification(IMAGE* target, IMAGE* specification) {
 
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
-      uchar px, r, g, b;
+      uchar px, rgb;
       if (pxlen == 3) {
-            r = target->r[i][j];
-            target->r[i][j] = conversionSpecification[0][clip((int) probsTarget[0][r] * 255 / dimen, 0, 255)];
-            g = target->g[i][j];
-            target->g[i][j] = conversionSpecification[0][clip((int) probsTarget[0][g] * 255 / dimen, 0, 255)];
-            b = target->b[i][j];
-            target->b[i][j] = conversionSpecification[0][clip((int) probsTarget[0][b] * 255 / dimen, 0, 255)];
+            for (int k = 0; k < 3; k++){
+                rgb = target->rgbPixels[i][j][k];
+                target->rgbPixels[i][j][k] = conversionSpecification[k][clip((int) probsTarget[k][rgb] * 255 / dimen, 0, 255)];
+            }
       } else {
             px = target->pixels[i][j];
             target->pixels[i][j] = conversionSpecification[0][clip((int) probsTarget[0][px] * 255 / dimen, 0, 255)];

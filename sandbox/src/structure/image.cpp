@@ -10,19 +10,18 @@ IMAGE::IMAGE(const IMAGE &image){
     this->width = image.width;
 
     if (image.pixels == NULL){
-        this->r = (uchar**) malloc(image.height*sizeof(uchar*));
-        this->g = (uchar**) malloc(image.height*sizeof(uchar*));
-        this->b = (uchar**) malloc(image.height*sizeof(uchar*));
+        this->rgbPixels = (uchar***) malloc(image.height*sizeof(uchar**));
         for (int i = 0; i < image.height; i++){
-            this->r[i] = (uchar*) malloc(image.width*sizeof(uchar));
-            this->g[i] = (uchar*) malloc(image.width*sizeof(uchar));
-            this->b[i] = (uchar*) malloc(image.width*sizeof(uchar));
+            this->rgbPixels[i] = (uchar**) malloc(image.width*sizeof(uchar*));
+            for (int j = 0; j < image.width; j++){
+                this->rgbPixels[i][j] = (uchar*) malloc(3*sizeof(uchar));
+            }
         }
         for (int i = 0; i < image.height; i++){
             for (int j = 0; j < image.width; j++){
-                this->r[i][j] = image.r[i][j];
-                this->g[i][j] = image.g[i][j];
-                this->b[i][j] = image.b[i][j];
+                for (int k = 0; k < 3; k++){
+                    this->rgbPixels[i][j][k] = image.rgbPixels[i][j][k];
+                }
             }
         }
     } else {
@@ -44,8 +43,18 @@ IMAGE::IMAGE(const IMAGE &image){
 };
 
 IMAGE::~IMAGE(){
-    for (int i = 0; i < this->height; i++) {
-        free(this->pixels[i]);
+    if (this->pixels == NULL){
+        for (int i = 0; i < this->height; i++){
+            for (int j = 0; j < this->width; j++){
+                free(this->rgbPixels[i][j]);
+            }
+            free(this->rgbPixels[i]);
+        }
+        free(this->rgbPixels);
+    } else {
+        for (int i = 0; i < this->height; i++) {
+            free(this->pixels[i]);
+        }
+        free(this->pixels);
     }
-    free(this->pixels);
 };

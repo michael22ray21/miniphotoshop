@@ -11,9 +11,7 @@ public:
     int width, height, bitCount, fileSize, headSize;
     char* header;
     uchar** pixels;
-    uchar** r;
-    uchar** g;
-    uchar** b;
+    uchar*** rgbPixels;
 
     IMAGE(std::string filename);
     IMAGE(const IMAGE &image);
