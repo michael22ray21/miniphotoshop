@@ -5,7 +5,13 @@
 void brighten(IMAGE *target, double multiplier) {  
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
-      target->pixels[i][j] *= multiplier;
+        if (target->r == NULL){
+            target->pixels[i][j] *= multiplier;
+        } else {
+            target->r[i][j] *= multiplier;
+            target->g[i][j] *= multiplier;
+            target->b[i][j] *= multiplier;
+        }
     }
   }
 }
