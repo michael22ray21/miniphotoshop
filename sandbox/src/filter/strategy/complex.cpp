@@ -2,7 +2,7 @@
 #include "convolution.hpp"
 #include "../../utils/math.hpp"
 
-void FilterUnsharpStrategy::apply(Image* target) {
+static void applyFilterUnsharpStrategy(IMAGE* target){
   Kernel averageKernel;
   averageKernel.assign(5, std::vector<double>());
   for (int i = 0; i < 5; i++) {
@@ -11,19 +11,31 @@ void FilterUnsharpStrategy::apply(Image* target) {
     }
   }
 
-  Image* lowPass = new Image(*target);
-  FilterConvolutionStrategy* lowpassStrategy = new FilterConvolutionStrategy(averageKernel);
-  lowpassStrategy->apply(lowPass);
+  IMAGE* lowPass = new IMAGE(*target);
+  applyFilterConvolutionStrategy(lowPass, averageKernel);
 
-  Image* highPass = new Image(*target);
+  IMAGE* highPass = new IMAGE(*target);
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
-      highPass->set_pixel(i, j, target->get_pixel(i, j) - lowPass->get_pixel(i, j));
+      if (highPass->r == NULL){
+        highPass->pixels[i][j] = clip((int) target->pixels[i][j] - lowPass->pixels[i][j], 0, 255);
+      }else{
+        highPass->r[i][j] = clip((int) target->r[i][j] - lowPass->r[i][j], 0, 255);
+        highPass->g[i][j] = clip((int) target->g[i][j] - lowPass->g[i][j], 0, 255);
+        highPass->b[i][j] = clip((int) target->b[i][j] - lowPass->b[i][j], 0, 255);
+      }
     }
   }
 
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
+      if (highPass->r == NULL){
+        tar->pixels[i][j] = clip((int) target->pixels[i][j] - lowPass->pixels[i][j], 0, 255);
+      }else{
+        highPass->r[i][j] = clip((int) target->r[i][j] - lowPass->r[i][j], 0, 255);
+        highPass->g[i][j] = clip((int) target->g[i][j] - lowPass->g[i][j], 0, 255);
+        highPass->b[i][j] = clip((int) target->b[i][j] - lowPass->b[i][j], 0, 255);
+      }
       target->set_pixel(i, j, target->get_pixel(i, j) + highPass->get_pixel(i, j));
     }
   }
