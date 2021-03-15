@@ -15,6 +15,9 @@ public:
     uchar** g;
     uchar** b;
 
+    IMAGE(std::string filename);
+    IMAGE(const IMAGE &image);
+
     ~IMAGE();
 };
 #endif

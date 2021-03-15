@@ -1,5 +1,5 @@
 #include "raw.hpp"
-RAW::RAW(std::string filename){
+RAW::RAW(std::string filename) : IMAGE(filename){
     std::ifstream image_file;
     char* data;
     int size;

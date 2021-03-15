@@ -1,6 +1,6 @@
 #include "pgm.hpp"
 
-PGM::PGM(std::string filename){
+PGM::PGM(std::string filename) : IMAGE(filename){
     std::ifstream image_file;
     char* data;
     int size;

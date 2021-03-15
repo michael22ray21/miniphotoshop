@@ -3779,6 +3779,87 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_new_IMAGE__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::string arg1 ;
+  IMAGE *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "new_IMAGE" "', argument " "1"" of type '" "std::string""'"); 
+    }
+    arg1 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  result = (IMAGE *)new IMAGE(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_IMAGE, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_IMAGE__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  IMAGE *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  IMAGE *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_IMAGE,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_IMAGE" "', argument " "1"" of type '" "IMAGE const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_IMAGE" "', argument " "1"" of type '" "IMAGE const &""'"); 
+  }
+  arg1 = reinterpret_cast< IMAGE * >(argp1);
+  result = (IMAGE *)new IMAGE((IMAGE const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_IMAGE, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_IMAGE(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "new_IMAGE", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_IMAGE, SWIG_POINTER_NO_NULL | 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_IMAGE__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_IMAGE__SWIG_0(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'new_IMAGE'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    IMAGE::IMAGE(std::string)\n"
+    "    IMAGE::IMAGE(IMAGE const &)\n");
+  return 0;
+}
+
+
 SWIGINTERN PyObject *_wrap_delete_IMAGE(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   IMAGE *arg1 = (IMAGE *) 0 ;
@@ -3801,19 +3882,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_IMAGE(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  IMAGE *result = 0 ;
-  
-  if (!SWIG_Python_UnpackTuple(args, "new_IMAGE", 0, 0, 0)) SWIG_fail;
-  result = (IMAGE *)new IMAGE();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_IMAGE, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *IMAGE_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
@@ -3825,14 +3893,12 @@ SWIGINTERN PyObject *IMAGE_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *ar
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_new_BMP(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_BMP__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   std::string arg1 ;
-  PyObject *swig_obj[1] ;
   BMP *result = 0 ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   {
     std::string *ptr = (std::string *)0;
     int res = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
@@ -3847,6 +3913,64 @@ SWIGINTERN PyObject *_wrap_new_BMP(PyObject *SWIGUNUSEDPARM(self), PyObject *arg
   return resultobj;
 fail:
   return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_BMP__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  BMP *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  BMP *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_BMP,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_BMP" "', argument " "1"" of type '" "BMP const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_BMP" "', argument " "1"" of type '" "BMP const &""'"); 
+  }
+  arg1 = reinterpret_cast< BMP * >(argp1);
+  result = (BMP *)new BMP((BMP const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_BMP, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_BMP(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "new_BMP", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_BMP, SWIG_POINTER_NO_NULL | 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_BMP__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_BMP__SWIG_0(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'new_BMP'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    BMP::BMP(std::string)\n"
+    "    BMP::BMP(BMP const &)\n");
+  return 0;
 }
 
 
@@ -3883,14 +4007,12 @@ SWIGINTERN PyObject *BMP_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_new_PBM(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_PBM__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   std::string arg1 ;
-  PyObject *swig_obj[1] ;
   PBM *result = 0 ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   {
     std::string *ptr = (std::string *)0;
     int res = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
@@ -3905,6 +4027,64 @@ SWIGINTERN PyObject *_wrap_new_PBM(PyObject *SWIGUNUSEDPARM(self), PyObject *arg
   return resultobj;
 fail:
   return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_PBM__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  PBM *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PBM *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_PBM,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_PBM" "', argument " "1"" of type '" "PBM const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_PBM" "', argument " "1"" of type '" "PBM const &""'"); 
+  }
+  arg1 = reinterpret_cast< PBM * >(argp1);
+  result = (PBM *)new PBM((PBM const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PBM, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_PBM(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "new_PBM", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_PBM, SWIG_POINTER_NO_NULL | 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_PBM__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_PBM__SWIG_0(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'new_PBM'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    PBM::PBM(std::string)\n"
+    "    PBM::PBM(PBM const &)\n");
+  return 0;
 }
 
 
@@ -3941,14 +4121,12 @@ SWIGINTERN PyObject *PBM_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_new_PGM(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_PGM__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   std::string arg1 ;
-  PyObject *swig_obj[1] ;
   PGM *result = 0 ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   {
     std::string *ptr = (std::string *)0;
     int res = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
@@ -3963,6 +4141,64 @@ SWIGINTERN PyObject *_wrap_new_PGM(PyObject *SWIGUNUSEDPARM(self), PyObject *arg
   return resultobj;
 fail:
   return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_PGM__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  PGM *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PGM *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_PGM,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_PGM" "', argument " "1"" of type '" "PGM const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_PGM" "', argument " "1"" of type '" "PGM const &""'"); 
+  }
+  arg1 = reinterpret_cast< PGM * >(argp1);
+  result = (PGM *)new PGM((PGM const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PGM, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_PGM(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "new_PGM", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_PGM, SWIG_POINTER_NO_NULL | 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_PGM__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_PGM__SWIG_0(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'new_PGM'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    PGM::PGM(std::string)\n"
+    "    PGM::PGM(PGM const &)\n");
+  return 0;
 }
 
 
@@ -3999,14 +4235,12 @@ SWIGINTERN PyObject *PGM_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_new_PPM(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_PPM__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   std::string arg1 ;
-  PyObject *swig_obj[1] ;
   PPM *result = 0 ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   {
     std::string *ptr = (std::string *)0;
     int res = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
@@ -4021,6 +4255,64 @@ SWIGINTERN PyObject *_wrap_new_PPM(PyObject *SWIGUNUSEDPARM(self), PyObject *arg
   return resultobj;
 fail:
   return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_PPM__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  PPM *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PPM *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_PPM,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_PPM" "', argument " "1"" of type '" "PPM const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_PPM" "', argument " "1"" of type '" "PPM const &""'"); 
+  }
+  arg1 = reinterpret_cast< PPM * >(argp1);
+  result = (PPM *)new PPM((PPM const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PPM, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_PPM(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "new_PPM", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_PPM, SWIG_POINTER_NO_NULL | 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_PPM__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_PPM__SWIG_0(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'new_PPM'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    PPM::PPM(std::string)\n"
+    "    PPM::PPM(PPM const &)\n");
+  return 0;
 }
 
 
@@ -4057,14 +4349,12 @@ SWIGINTERN PyObject *PPM_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_new_RAW(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_RAW__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   std::string arg1 ;
-  PyObject *swig_obj[1] ;
   RAW *result = 0 ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   {
     std::string *ptr = (std::string *)0;
     int res = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
@@ -4079,6 +4369,64 @@ SWIGINTERN PyObject *_wrap_new_RAW(PyObject *SWIGUNUSEDPARM(self), PyObject *arg
   return resultobj;
 fail:
   return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_RAW__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  RAW *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  RAW *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_RAW,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_RAW" "', argument " "1"" of type '" "RAW const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_RAW" "', argument " "1"" of type '" "RAW const &""'"); 
+  }
+  arg1 = reinterpret_cast< RAW * >(argp1);
+  result = (RAW *)new RAW((RAW const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_RAW, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_RAW(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "new_RAW", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_RAW, SWIG_POINTER_NO_NULL | 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_RAW__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_RAW__SWIG_0(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'new_RAW'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    RAW::RAW(std::string)\n"
+    "    RAW::RAW(RAW const &)\n");
+  return 0;
 }
 
 
@@ -4539,27 +4887,27 @@ static PyMethodDef SwigMethods[] = {
 	 { "IMAGE_g_get", _wrap_IMAGE_g_get, METH_O, NULL},
 	 { "IMAGE_b_set", _wrap_IMAGE_b_set, METH_VARARGS, NULL},
 	 { "IMAGE_b_get", _wrap_IMAGE_b_get, METH_O, NULL},
+	 { "new_IMAGE", _wrap_new_IMAGE, METH_VARARGS, NULL},
 	 { "delete_IMAGE", _wrap_delete_IMAGE, METH_O, NULL},
-	 { "new_IMAGE", _wrap_new_IMAGE, METH_NOARGS, NULL},
 	 { "IMAGE_swigregister", IMAGE_swigregister, METH_O, NULL},
 	 { "IMAGE_swiginit", IMAGE_swiginit, METH_VARARGS, NULL},
-	 { "new_BMP", _wrap_new_BMP, METH_O, NULL},
+	 { "new_BMP", _wrap_new_BMP, METH_VARARGS, NULL},
 	 { "delete_BMP", _wrap_delete_BMP, METH_O, NULL},
 	 { "BMP_swigregister", BMP_swigregister, METH_O, NULL},
 	 { "BMP_swiginit", BMP_swiginit, METH_VARARGS, NULL},
-	 { "new_PBM", _wrap_new_PBM, METH_O, NULL},
+	 { "new_PBM", _wrap_new_PBM, METH_VARARGS, NULL},
 	 { "delete_PBM", _wrap_delete_PBM, METH_O, NULL},
 	 { "PBM_swigregister", PBM_swigregister, METH_O, NULL},
 	 { "PBM_swiginit", PBM_swiginit, METH_VARARGS, NULL},
-	 { "new_PGM", _wrap_new_PGM, METH_O, NULL},
+	 { "new_PGM", _wrap_new_PGM, METH_VARARGS, NULL},
 	 { "delete_PGM", _wrap_delete_PGM, METH_O, NULL},
 	 { "PGM_swigregister", PGM_swigregister, METH_O, NULL},
 	 { "PGM_swiginit", PGM_swiginit, METH_VARARGS, NULL},
-	 { "new_PPM", _wrap_new_PPM, METH_O, NULL},
+	 { "new_PPM", _wrap_new_PPM, METH_VARARGS, NULL},
 	 { "delete_PPM", _wrap_delete_PPM, METH_O, NULL},
 	 { "PPM_swigregister", PPM_swigregister, METH_O, NULL},
 	 { "PPM_swiginit", PPM_swiginit, METH_VARARGS, NULL},
-	 { "new_RAW", _wrap_new_RAW, METH_O, NULL},
+	 { "new_RAW", _wrap_new_RAW, METH_VARARGS, NULL},
 	 { "delete_RAW", _wrap_delete_RAW, METH_O, NULL},
 	 { "RAW_swigregister", RAW_swigregister, METH_O, NULL},
 	 { "RAW_swiginit", RAW_swiginit, METH_VARARGS, NULL},

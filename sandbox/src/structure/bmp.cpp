@@ -1,6 +1,6 @@
 #include "bmp.hpp"
 
-BMP::BMP(std::string filename){
+BMP::BMP(std::string filename) : IMAGE(filename){
     std::ifstream image_file;
     char* data;
     int size;

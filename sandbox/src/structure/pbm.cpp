@@ -1,6 +1,6 @@
 #include "pbm.hpp"
 
-PBM::PBM(std::string filename){
+PBM::PBM(std::string filename) : IMAGE(filename){
     std::ifstream image_file;
     char* data;
     int size;

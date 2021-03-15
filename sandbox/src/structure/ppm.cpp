@@ -1,6 +1,6 @@
 #include "ppm.hpp"
 
-PPM::PPM(std::string filename){
+PPM::PPM(std::string filename) : IMAGE(filename){
     std::ifstream image_file;
     char* data;
     int size;

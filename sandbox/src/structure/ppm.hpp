@@ -8,6 +8,7 @@
 class PPM : public IMAGE{
 public:
     PPM(std::string filename);
+    PPM(const PPM &image) : IMAGE(image){};
 };
 
 #endif

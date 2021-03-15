@@ -8,6 +8,7 @@
 class PBM : public IMAGE{
 public:
     PBM(std::string filename);
+    PBM(const PBM &image) : IMAGE(image){};
 };
 
 #endif

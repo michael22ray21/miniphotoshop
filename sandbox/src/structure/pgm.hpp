@@ -9,6 +9,7 @@
 class PGM : public IMAGE{
 public:
     PGM(std::string filename);
+    PGM(const PGM &image) : IMAGE(image){};
 };
 
 #endif

@@ -74,10 +74,10 @@ class IMAGE(object):
     r = property(_image_processing.IMAGE_r_get, _image_processing.IMAGE_r_set)
     g = property(_image_processing.IMAGE_g_get, _image_processing.IMAGE_g_set)
     b = property(_image_processing.IMAGE_b_get, _image_processing.IMAGE_b_set)
-    __swig_destroy__ = _image_processing.delete_IMAGE
 
-    def __init__(self):
-        _image_processing.IMAGE_swiginit(self, _image_processing.new_IMAGE())
+    def __init__(self, *args):
+        _image_processing.IMAGE_swiginit(self, _image_processing.new_IMAGE(*args))
+    __swig_destroy__ = _image_processing.delete_IMAGE
 
 # Register IMAGE in _image_processing:
 _image_processing.IMAGE_swigregister(IMAGE)
@@ -86,8 +86,8 @@ class BMP(IMAGE):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self, filename):
-        _image_processing.BMP_swiginit(self, _image_processing.new_BMP(filename))
+    def __init__(self, *args):
+        _image_processing.BMP_swiginit(self, _image_processing.new_BMP(*args))
     __swig_destroy__ = _image_processing.delete_BMP
 
 # Register BMP in _image_processing:
@@ -97,8 +97,8 @@ class PBM(IMAGE):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self, filename):
-        _image_processing.PBM_swiginit(self, _image_processing.new_PBM(filename))
+    def __init__(self, *args):
+        _image_processing.PBM_swiginit(self, _image_processing.new_PBM(*args))
     __swig_destroy__ = _image_processing.delete_PBM
 
 # Register PBM in _image_processing:
@@ -108,8 +108,8 @@ class PGM(IMAGE):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self, filename):
-        _image_processing.PGM_swiginit(self, _image_processing.new_PGM(filename))
+    def __init__(self, *args):
+        _image_processing.PGM_swiginit(self, _image_processing.new_PGM(*args))
     __swig_destroy__ = _image_processing.delete_PGM
 
 # Register PGM in _image_processing:
@@ -119,8 +119,8 @@ class PPM(IMAGE):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self, filename):
-        _image_processing.PPM_swiginit(self, _image_processing.new_PPM(filename))
+    def __init__(self, *args):
+        _image_processing.PPM_swiginit(self, _image_processing.new_PPM(*args))
     __swig_destroy__ = _image_processing.delete_PPM
 
 # Register PPM in _image_processing:
@@ -130,8 +130,8 @@ class RAW(IMAGE):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self, filename):
-        _image_processing.RAW_swiginit(self, _image_processing.new_RAW(filename))
+    def __init__(self, *args):
+        _image_processing.RAW_swiginit(self, _image_processing.new_RAW(*args))
     __swig_destroy__ = _image_processing.delete_RAW
 
 # Register RAW in _image_processing:

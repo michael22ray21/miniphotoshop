@@ -8,6 +8,7 @@
 class BMP : public IMAGE{
 public:
     BMP(std::string filename);
+    BMP(const BMP &image) : IMAGE(image){};
 };
 
 #endif

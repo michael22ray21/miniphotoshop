@@ -8,5 +8,6 @@ class RAW : public IMAGE
 {
 public:
     RAW(std::string filename);
+    RAW(const RAW &image) : IMAGE(image){};
 };
 #endif
