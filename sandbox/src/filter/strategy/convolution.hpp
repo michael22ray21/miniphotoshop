@@ -4,6 +4,6 @@
 #include "../../structure/image.hpp"
 #include "../kernel.hpp"
 
-static void applyFilterConvolutionStrategy(IMAGE* target, Kernel kernel);
+void applyFilterConvolutionStrategy(IMAGE* target, Kernel kernel);
 
 #endif

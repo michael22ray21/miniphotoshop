@@ -3,9 +3,9 @@
 
 #include "../../structure/image.hpp"
 
-static void applyFilterUnsharpStrategy(IMAGE* target);
+void applyFilterUnsharpStrategy(IMAGE* target);
 
-static void applyFilterHighboostStrategy(IMAGE* target, double alpha);
+void applyFilterHighboostStrategy(IMAGE* target, double alpha);
 
-static void applyFilterCannyStrategy(IMAGE* target);
+void applyFilterCannyStrategy(IMAGE* target);
 #endif

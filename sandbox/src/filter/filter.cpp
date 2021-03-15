@@ -2,7 +2,7 @@
 #include "kernel.hpp"
 #include "strategy/strategy.hpp"
 
-static void applyFilter(IMAGE* target, KernelType kernelType, Kernel strategy) {
+void applyFilter(IMAGE* target, KernelType kernelType, Kernel strategy) {
   int group = checkKernelGroup(kernelType);
 
   /** Convolutional kernel **/

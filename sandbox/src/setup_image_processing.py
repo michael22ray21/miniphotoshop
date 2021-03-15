@@ -12,6 +12,13 @@ version = "1.0"
 ext_modules = Extension(name='_image_processing',
 sources=[
 	"image_processing.i",
+	"filter/filter.cpp",
+	"filter/kernel.cpp",
+	"filter/strategy/complex.cpp",
+	"filter/strategy/convolution.cpp",
+	"filter/strategy/nonlinear.cpp",
+	"operations/enhancements.cpp",
+	"operations/equalizations.cpp",
 	"structure/image.cpp",
 	"structure/bmp.cpp",
 	"structure/pbm.cpp",

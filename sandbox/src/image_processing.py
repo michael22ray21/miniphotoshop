@@ -177,4 +177,89 @@ def imageLoader(filename):
 def getFileSize(filename):
     return _image_processing.getFileSize(filename)
 
+def brighten(target, multiplier):
+    return _image_processing.brighten(target, multiplier)
+
+def contrastStretch(target, rMin, rMax):
+    return _image_processing.contrastStretch(target, rMin, rMax)
+
+def logTransform(target, c):
+    return _image_processing.logTransform(target, c)
+
+def inverseLog(target, c):
+    return _image_processing.inverseLog(target, c)
+
+def power(target, c):
+    return _image_processing.power(target, c)
+
+def graySlicing(target, rMin, rMax):
+    return _image_processing.graySlicing(target, rMin, rMax)
+
+def bitSlicing(target, bit):
+    return _image_processing.bitSlicing(target, bit)
+
+def createHistogramDistribution(source):
+    return _image_processing.createHistogramDistribution(source)
+
+def applyHistogramEqualization(target):
+    return _image_processing.applyHistogramEqualization(target)
+
+def applyHistogramSpecification(target, specification):
+    return _image_processing.applyHistogramSpecification(target, specification)
+
+def applyFilter(target, kernelType, strategy):
+    return _image_processing.applyFilter(target, kernelType, strategy)
+AVERAGE = _image_processing.AVERAGE
+GAUSSIAN3 = _image_processing.GAUSSIAN3
+MEDIAN = _image_processing.MEDIAN
+MAX = _image_processing.MAX
+MIN = _image_processing.MIN
+HIGH_A = _image_processing.HIGH_A
+HIGH_B = _image_processing.HIGH_B
+HIGH_C = _image_processing.HIGH_C
+HIGH_D = _image_processing.HIGH_D
+HIGH_E = _image_processing.HIGH_E
+HIGH_F = _image_processing.HIGH_F
+GRADIENT_X = _image_processing.GRADIENT_X
+GRADIENT_Y = _image_processing.GRADIENT_Y
+DERIV2 = _image_processing.DERIV2
+LAPLACE = _image_processing.LAPLACE
+LOG = _image_processing.LOG
+SOBEL_X = _image_processing.SOBEL_X
+SOBEL_Y = _image_processing.SOBEL_Y
+PREWITT_X = _image_processing.PREWITT_X
+PREWITT_Y = _image_processing.PREWITT_Y
+ROBERTS_1 = _image_processing.ROBERTS_1
+ROBERTS_2 = _image_processing.ROBERTS_2
+CANNY = _image_processing.CANNY
+UNSHARP = _image_processing.UNSHARP
+HIGHBOOST = _image_processing.HIGHBOOST
+
+def checkKernelGroup(kernelType):
+    return _image_processing.checkKernelGroup(kernelType)
+
+def loadKernel(filename):
+    return _image_processing.loadKernel(filename)
+
+def applyFilterUnsharpStrategy(target):
+    return _image_processing.applyFilterUnsharpStrategy(target)
+
+def applyFilterHighboostStrategy(target, alpha):
+    return _image_processing.applyFilterHighboostStrategy(target, alpha)
+
+def applyFilterCannyStrategy(target):
+    return _image_processing.applyFilterCannyStrategy(target)
+
+def applyFilterConvolutionStrategy(target, kernel):
+    return _image_processing.applyFilterConvolutionStrategy(target, kernel)
+
+def applyFilterMedianStrategy(target, size):
+    return _image_processing.applyFilterMedianStrategy(target, size)
+
+def applyFilterMaxStrategy(target, size):
+    return _image_processing.applyFilterMaxStrategy(target, size)
+
+def applyFilterMinStrategy(target, size):
+    return _image_processing.applyFilterMinStrategy(target, size)
+
 

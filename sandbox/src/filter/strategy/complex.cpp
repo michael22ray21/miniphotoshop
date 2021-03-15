@@ -2,7 +2,7 @@
 #include "convolution.hpp"
 #include "../../utils/math.hpp"
 
-static void applyFilterUnsharpStrategy(IMAGE* target){
+void applyFilterUnsharpStrategy(IMAGE* target){
   Kernel averageKernel;
   averageKernel.assign(5, std::vector<double>());
   for (int i = 0; i < 5; i++) {
@@ -43,7 +43,7 @@ static void applyFilterUnsharpStrategy(IMAGE* target){
   delete highPass;
 }
 
-static void applyFilterHighboostStrategy(IMAGE* target, double alpha) {
+void applyFilterHighboostStrategy(IMAGE* target, double alpha) {
   Kernel averageKernel;
   averageKernel.assign(5, std::vector<double>());
   for (int i = 0; i < 5; i++) {
@@ -87,7 +87,7 @@ static void applyFilterHighboostStrategy(IMAGE* target, double alpha) {
   delete lowPass;
 }
 
-static void applyFilterCannyStrategy(IMAGE* target) {
+void applyFilterCannyStrategy(IMAGE* target) {
   Kernel kernelGaussian7 = loadKernel("gaussian7");
   Kernel kernelSobelX = loadKernel("sobelX");
   Kernel kernelSobelY = loadKernel("sobelY");

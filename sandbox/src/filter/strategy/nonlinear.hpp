@@ -3,10 +3,10 @@
 
 #include "../../structure/image.hpp"
 
-static void applyFilterMedianStrategy(IMAGE* target, int size);
+void applyFilterMedianStrategy(IMAGE* target, int size);
 
-static void applyFilterMaxStrategy(IMAGE* target, int size);
+void applyFilterMaxStrategy(IMAGE* target, int size);
 
-static void applyFilterMinStrategy(IMAGE* target, int size);
+void applyFilterMinStrategy(IMAGE* target, int size);
 
 #endif

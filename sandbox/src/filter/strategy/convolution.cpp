@@ -3,7 +3,7 @@
 #include "convolution.hpp"
 #include "../../utils/math.hpp"
 
-static void applyFilterConvolutionStrategy(IMAGE* target, Kernel kernel) {
+void applyFilterConvolutionStrategy(IMAGE* target, Kernel kernel) {
   IMAGE* temp = new IMAGE(*target);
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {

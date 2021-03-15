@@ -232,4 +232,3 @@ void bitSlicing(IMAGE* target, int bit) {
         }
     }
 }
-

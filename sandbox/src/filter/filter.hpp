@@ -6,6 +6,6 @@
 #include "kernel.hpp"
 #include <fstream>
 
-static void applyFilter(IMAGE* target, KernelType kernelType, Kernel strategy);
+void applyFilter(IMAGE* target, KernelType kernelType, Kernel strategy);
 
 #endif

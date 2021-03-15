@@ -5,7 +5,7 @@
 
 int** createHistogramDistribution(IMAGE* source);
 
-static void applyHistogramEqualize(IMAGE* target);
-static void applyHistogramSpecification(IMAGE* target, IMAGE* specification);
+void applyHistogramEqualization(IMAGE* target);
+void applyHistogramSpecification(IMAGE* target, IMAGE* specification);
 
 #endif

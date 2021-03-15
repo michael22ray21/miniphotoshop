@@ -36,7 +36,7 @@ void manualSort(std::vector<uchar> &r, std::vector<uchar> &g, std::vector<uchar>
   }
 }
 
-static void applyFilterMedianStrategy(IMAGE* target, int size) {
+void applyFilterMedianStrategy(IMAGE* target, int size) {
   IMAGE* temp = new IMAGE(*target);
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
@@ -73,7 +73,7 @@ static void applyFilterMedianStrategy(IMAGE* target, int size) {
   delete temp;
 }
 
-static void applyFilterMaxStrategy(IMAGE* target, int size) {
+void applyFilterMaxStrategy(IMAGE* target, int size) {
   IMAGE* temp = new IMAGE(*target);
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
@@ -114,7 +114,7 @@ static void applyFilterMaxStrategy(IMAGE* target, int size) {
 }
 
 
-static void applyFilterMinStrategy(IMAGE* target, int size) {
+void applyFilterMinStrategy(IMAGE* target, int size) {
   IMAGE* temp = new IMAGE(*target);
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
