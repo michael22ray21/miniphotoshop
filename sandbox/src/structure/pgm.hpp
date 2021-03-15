@@ -8,7 +8,7 @@
 
 class PGM : public IMAGE{
 public:
-    PGM(char* data, int size);
+    PGM(std::string filename);
 };
 
 #endif

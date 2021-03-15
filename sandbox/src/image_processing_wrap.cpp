@@ -2697,7 +2697,7 @@ SWIGINTERN PyObject *SWIG_PyStaticMethod_New(PyObject *SWIGUNUSEDPARM(self), PyO
 #define SWIGTYPE_p_RAW swig_types[5]
 #define SWIGTYPE_p_char swig_types[6]
 #define SWIGTYPE_p_int swig_types[7]
-#define SWIGTYPE_p_p_unsigned_short swig_types[8]
+#define SWIGTYPE_p_p_unsigned_char swig_types[8]
 static swig_type_info *swig_types[10];
 static swig_module_info swig_module = {swig_types, 9, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
@@ -3574,7 +3574,7 @@ fail:
 SWIGINTERN PyObject *_wrap_IMAGE_pixels_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   IMAGE *arg1 = (IMAGE *) 0 ;
-  unsigned short **arg2 = (unsigned short **) 0 ;
+  unsigned char **arg2 = (unsigned char **) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -3587,11 +3587,11 @@ SWIGINTERN PyObject *_wrap_IMAGE_pixels_set(PyObject *SWIGUNUSEDPARM(self), PyOb
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "IMAGE_pixels_set" "', argument " "1"" of type '" "IMAGE *""'"); 
   }
   arg1 = reinterpret_cast< IMAGE * >(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_p_unsigned_short, 0 |  0 );
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_p_unsigned_char, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "IMAGE_pixels_set" "', argument " "2"" of type '" "unsigned short **""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "IMAGE_pixels_set" "', argument " "2"" of type '" "unsigned char **""'"); 
   }
-  arg2 = reinterpret_cast< unsigned short ** >(argp2);
+  arg2 = reinterpret_cast< unsigned char ** >(argp2);
   if (arg1) (arg1)->pixels = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -3606,7 +3606,7 @@ SWIGINTERN PyObject *_wrap_IMAGE_pixels_get(PyObject *SWIGUNUSEDPARM(self), PyOb
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  unsigned short **result = 0 ;
+  unsigned char **result = 0 ;
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
@@ -3615,8 +3615,8 @@ SWIGINTERN PyObject *_wrap_IMAGE_pixels_get(PyObject *SWIGUNUSEDPARM(self), PyOb
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "IMAGE_pixels_get" "', argument " "1"" of type '" "IMAGE *""'"); 
   }
   arg1 = reinterpret_cast< IMAGE * >(argp1);
-  result = (unsigned short **) ((arg1)->pixels);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_p_unsigned_short, 0 |  0 );
+  result = (unsigned char **) ((arg1)->pixels);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_p_unsigned_char, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -3626,7 +3626,7 @@ fail:
 SWIGINTERN PyObject *_wrap_IMAGE_r_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   IMAGE *arg1 = (IMAGE *) 0 ;
-  unsigned short **arg2 = (unsigned short **) 0 ;
+  unsigned char **arg2 = (unsigned char **) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -3639,11 +3639,11 @@ SWIGINTERN PyObject *_wrap_IMAGE_r_set(PyObject *SWIGUNUSEDPARM(self), PyObject 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "IMAGE_r_set" "', argument " "1"" of type '" "IMAGE *""'"); 
   }
   arg1 = reinterpret_cast< IMAGE * >(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_p_unsigned_short, 0 |  0 );
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_p_unsigned_char, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "IMAGE_r_set" "', argument " "2"" of type '" "unsigned short **""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "IMAGE_r_set" "', argument " "2"" of type '" "unsigned char **""'"); 
   }
-  arg2 = reinterpret_cast< unsigned short ** >(argp2);
+  arg2 = reinterpret_cast< unsigned char ** >(argp2);
   if (arg1) (arg1)->r = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -3658,7 +3658,7 @@ SWIGINTERN PyObject *_wrap_IMAGE_r_get(PyObject *SWIGUNUSEDPARM(self), PyObject 
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  unsigned short **result = 0 ;
+  unsigned char **result = 0 ;
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
@@ -3667,8 +3667,8 @@ SWIGINTERN PyObject *_wrap_IMAGE_r_get(PyObject *SWIGUNUSEDPARM(self), PyObject 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "IMAGE_r_get" "', argument " "1"" of type '" "IMAGE *""'"); 
   }
   arg1 = reinterpret_cast< IMAGE * >(argp1);
-  result = (unsigned short **) ((arg1)->r);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_p_unsigned_short, 0 |  0 );
+  result = (unsigned char **) ((arg1)->r);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_p_unsigned_char, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -3678,7 +3678,7 @@ fail:
 SWIGINTERN PyObject *_wrap_IMAGE_g_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   IMAGE *arg1 = (IMAGE *) 0 ;
-  unsigned short **arg2 = (unsigned short **) 0 ;
+  unsigned char **arg2 = (unsigned char **) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -3691,11 +3691,11 @@ SWIGINTERN PyObject *_wrap_IMAGE_g_set(PyObject *SWIGUNUSEDPARM(self), PyObject 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "IMAGE_g_set" "', argument " "1"" of type '" "IMAGE *""'"); 
   }
   arg1 = reinterpret_cast< IMAGE * >(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_p_unsigned_short, 0 |  0 );
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_p_unsigned_char, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "IMAGE_g_set" "', argument " "2"" of type '" "unsigned short **""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "IMAGE_g_set" "', argument " "2"" of type '" "unsigned char **""'"); 
   }
-  arg2 = reinterpret_cast< unsigned short ** >(argp2);
+  arg2 = reinterpret_cast< unsigned char ** >(argp2);
   if (arg1) (arg1)->g = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -3710,7 +3710,7 @@ SWIGINTERN PyObject *_wrap_IMAGE_g_get(PyObject *SWIGUNUSEDPARM(self), PyObject 
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  unsigned short **result = 0 ;
+  unsigned char **result = 0 ;
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
@@ -3719,8 +3719,8 @@ SWIGINTERN PyObject *_wrap_IMAGE_g_get(PyObject *SWIGUNUSEDPARM(self), PyObject 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "IMAGE_g_get" "', argument " "1"" of type '" "IMAGE *""'"); 
   }
   arg1 = reinterpret_cast< IMAGE * >(argp1);
-  result = (unsigned short **) ((arg1)->g);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_p_unsigned_short, 0 |  0 );
+  result = (unsigned char **) ((arg1)->g);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_p_unsigned_char, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -3730,7 +3730,7 @@ fail:
 SWIGINTERN PyObject *_wrap_IMAGE_b_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   IMAGE *arg1 = (IMAGE *) 0 ;
-  unsigned short **arg2 = (unsigned short **) 0 ;
+  unsigned char **arg2 = (unsigned char **) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -3743,11 +3743,11 @@ SWIGINTERN PyObject *_wrap_IMAGE_b_set(PyObject *SWIGUNUSEDPARM(self), PyObject 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "IMAGE_b_set" "', argument " "1"" of type '" "IMAGE *""'"); 
   }
   arg1 = reinterpret_cast< IMAGE * >(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_p_unsigned_short, 0 |  0 );
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_p_unsigned_char, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "IMAGE_b_set" "', argument " "2"" of type '" "unsigned short **""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "IMAGE_b_set" "', argument " "2"" of type '" "unsigned char **""'"); 
   }
-  arg2 = reinterpret_cast< unsigned short ** >(argp2);
+  arg2 = reinterpret_cast< unsigned char ** >(argp2);
   if (arg1) (arg1)->b = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -3762,7 +3762,7 @@ SWIGINTERN PyObject *_wrap_IMAGE_b_get(PyObject *SWIGUNUSEDPARM(self), PyObject 
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  unsigned short **result = 0 ;
+  unsigned char **result = 0 ;
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
@@ -3771,8 +3771,8 @@ SWIGINTERN PyObject *_wrap_IMAGE_b_get(PyObject *SWIGUNUSEDPARM(self), PyObject 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "IMAGE_b_get" "', argument " "1"" of type '" "IMAGE *""'"); 
   }
   arg1 = reinterpret_cast< IMAGE * >(argp1);
-  result = (unsigned short **) ((arg1)->b);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_p_unsigned_short, 0 |  0 );
+  result = (unsigned char **) ((arg1)->b);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_p_unsigned_char, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -3827,33 +3827,25 @@ SWIGINTERN PyObject *IMAGE_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *ar
 
 SWIGINTERN PyObject *_wrap_new_BMP(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  char *arg1 = (char *) 0 ;
-  int arg2 ;
-  int res1 ;
-  char *buf1 = 0 ;
-  int alloc1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
+  std::string arg1 ;
+  PyObject *swig_obj[1] ;
   BMP *result = 0 ;
   
-  if (!SWIG_Python_UnpackTuple(args, "new_BMP", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_AsCharPtrAndSize(swig_obj[0], &buf1, NULL, &alloc1);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_BMP" "', argument " "1"" of type '" "char *""'");
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "new_BMP" "', argument " "1"" of type '" "std::string""'"); 
+    }
+    arg1 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
   }
-  arg1 = reinterpret_cast< char * >(buf1);
-  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_BMP" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  result = (BMP *)new BMP(arg1,arg2);
+  result = (BMP *)new BMP(arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_BMP, SWIG_POINTER_NEW |  0 );
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
   return resultobj;
 fail:
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
   return NULL;
 }
 
@@ -3893,33 +3885,25 @@ SWIGINTERN PyObject *BMP_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args
 
 SWIGINTERN PyObject *_wrap_new_PBM(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  char *arg1 = (char *) 0 ;
-  int arg2 ;
-  int res1 ;
-  char *buf1 = 0 ;
-  int alloc1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
+  std::string arg1 ;
+  PyObject *swig_obj[1] ;
   PBM *result = 0 ;
   
-  if (!SWIG_Python_UnpackTuple(args, "new_PBM", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_AsCharPtrAndSize(swig_obj[0], &buf1, NULL, &alloc1);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_PBM" "', argument " "1"" of type '" "char *""'");
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "new_PBM" "', argument " "1"" of type '" "std::string""'"); 
+    }
+    arg1 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
   }
-  arg1 = reinterpret_cast< char * >(buf1);
-  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_PBM" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  result = (PBM *)new PBM(arg1,arg2);
+  result = (PBM *)new PBM(arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PBM, SWIG_POINTER_NEW |  0 );
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
   return resultobj;
 fail:
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
   return NULL;
 }
 
@@ -3959,33 +3943,25 @@ SWIGINTERN PyObject *PBM_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args
 
 SWIGINTERN PyObject *_wrap_new_PGM(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  char *arg1 = (char *) 0 ;
-  int arg2 ;
-  int res1 ;
-  char *buf1 = 0 ;
-  int alloc1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
+  std::string arg1 ;
+  PyObject *swig_obj[1] ;
   PGM *result = 0 ;
   
-  if (!SWIG_Python_UnpackTuple(args, "new_PGM", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_AsCharPtrAndSize(swig_obj[0], &buf1, NULL, &alloc1);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_PGM" "', argument " "1"" of type '" "char *""'");
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "new_PGM" "', argument " "1"" of type '" "std::string""'"); 
+    }
+    arg1 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
   }
-  arg1 = reinterpret_cast< char * >(buf1);
-  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_PGM" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  result = (PGM *)new PGM(arg1,arg2);
+  result = (PGM *)new PGM(arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PGM, SWIG_POINTER_NEW |  0 );
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
   return resultobj;
 fail:
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
   return NULL;
 }
 
@@ -4025,33 +4001,25 @@ SWIGINTERN PyObject *PGM_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args
 
 SWIGINTERN PyObject *_wrap_new_PPM(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  char *arg1 = (char *) 0 ;
-  int arg2 ;
-  int res1 ;
-  char *buf1 = 0 ;
-  int alloc1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
+  std::string arg1 ;
+  PyObject *swig_obj[1] ;
   PPM *result = 0 ;
   
-  if (!SWIG_Python_UnpackTuple(args, "new_PPM", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_AsCharPtrAndSize(swig_obj[0], &buf1, NULL, &alloc1);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_PPM" "', argument " "1"" of type '" "char *""'");
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "new_PPM" "', argument " "1"" of type '" "std::string""'"); 
+    }
+    arg1 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
   }
-  arg1 = reinterpret_cast< char * >(buf1);
-  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_PPM" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  result = (PPM *)new PPM(arg1,arg2);
+  result = (PPM *)new PPM(arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PPM, SWIG_POINTER_NEW |  0 );
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
   return resultobj;
 fail:
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
   return NULL;
 }
 
@@ -4575,19 +4543,19 @@ static PyMethodDef SwigMethods[] = {
 	 { "new_IMAGE", _wrap_new_IMAGE, METH_NOARGS, NULL},
 	 { "IMAGE_swigregister", IMAGE_swigregister, METH_O, NULL},
 	 { "IMAGE_swiginit", IMAGE_swiginit, METH_VARARGS, NULL},
-	 { "new_BMP", _wrap_new_BMP, METH_VARARGS, NULL},
+	 { "new_BMP", _wrap_new_BMP, METH_O, NULL},
 	 { "delete_BMP", _wrap_delete_BMP, METH_O, NULL},
 	 { "BMP_swigregister", BMP_swigregister, METH_O, NULL},
 	 { "BMP_swiginit", BMP_swiginit, METH_VARARGS, NULL},
-	 { "new_PBM", _wrap_new_PBM, METH_VARARGS, NULL},
+	 { "new_PBM", _wrap_new_PBM, METH_O, NULL},
 	 { "delete_PBM", _wrap_delete_PBM, METH_O, NULL},
 	 { "PBM_swigregister", PBM_swigregister, METH_O, NULL},
 	 { "PBM_swiginit", PBM_swiginit, METH_VARARGS, NULL},
-	 { "new_PGM", _wrap_new_PGM, METH_VARARGS, NULL},
+	 { "new_PGM", _wrap_new_PGM, METH_O, NULL},
 	 { "delete_PGM", _wrap_delete_PGM, METH_O, NULL},
 	 { "PGM_swigregister", PGM_swigregister, METH_O, NULL},
 	 { "PGM_swiginit", PGM_swiginit, METH_VARARGS, NULL},
-	 { "new_PPM", _wrap_new_PPM, METH_VARARGS, NULL},
+	 { "new_PPM", _wrap_new_PPM, METH_O, NULL},
 	 { "delete_PPM", _wrap_delete_PPM, METH_O, NULL},
 	 { "PPM_swigregister", PPM_swigregister, METH_O, NULL},
 	 { "PPM_swiginit", PPM_swiginit, METH_VARARGS, NULL},
@@ -4641,7 +4609,7 @@ static swig_type_info _swigt__p_PPM = {"_p_PPM", "PPM *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_RAW = {"_p_RAW", "RAW *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_int = {"_p_int", "int *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_p_unsigned_short = {"_p_p_unsigned_short", "unsigned short **", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_p_unsigned_char = {"_p_p_unsigned_char", "unsigned char **", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_BMP,
@@ -4652,7 +4620,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_RAW,
   &_swigt__p_char,
   &_swigt__p_int,
-  &_swigt__p_p_unsigned_short,
+  &_swigt__p_p_unsigned_char,
 };
 
 static swig_cast_info _swigc__p_BMP[] = {  {&_swigt__p_BMP, 0, 0, 0},{0, 0, 0, 0}};
@@ -4663,7 +4631,7 @@ static swig_cast_info _swigc__p_PPM[] = {  {&_swigt__p_PPM, 0, 0, 0},{0, 0, 0, 0
 static swig_cast_info _swigc__p_RAW[] = {  {&_swigt__p_RAW, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_p_unsigned_short[] = {  {&_swigt__p_p_unsigned_short, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_p_unsigned_char[] = {  {&_swigt__p_p_unsigned_char, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_BMP,
@@ -4674,7 +4642,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_RAW,
   _swigc__p_char,
   _swigc__p_int,
-  _swigc__p_p_unsigned_short,
+  _swigc__p_p_unsigned_char,
 };
 
 

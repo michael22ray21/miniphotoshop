@@ -23,11 +23,11 @@ RAW::RAW(std::string filename){
     this->width = width;
     this->bitCount = 8;
     this->fileSize = size;
-    this->pixels = (ushort**) malloc(height*sizeof(ushort*));
+    this->pixels = (uchar**) malloc(height*sizeof(uchar*));
     for (int i = 0; i < height; i++){
-        this->pixels[i] = (ushort*) malloc(width*sizeof(ushort));
+        this->pixels[i] = (uchar*) malloc(width*sizeof(uchar));
     }
-    this->header = (char*) malloc(sizeof(short)*(pointer));
+    this->header = (char*) malloc(sizeof(char)*(pointer));
     this->headSize = pointer;
 
     for(int i = 0; i < pointer; i++){
@@ -36,7 +36,7 @@ RAW::RAW(std::string filename){
 
     for (int i = 0; i < height; i++) {
       for (int j = 0; j < width; j++) {
-        ushort gray = nextInt(data, size, &pointer);
+        uchar gray = nextInt(data, size, &pointer);
         this->pixels[i][j] = gray;
       }
     }

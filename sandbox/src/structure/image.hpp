@@ -4,16 +4,16 @@
 #include <fstream>
 #include <iostream>
 #include "../utils/reader.hpp"
-#define ushort unsigned short
+#define uchar unsigned char
 
 class IMAGE{
 public:
     int width, height, bitCount, fileSize, headSize;
     char* header;
-    ushort** pixels;
-    ushort** r;
-    ushort** g;
-    ushort** b;
+    uchar** pixels;
+    uchar** r;
+    uchar** g;
+    uchar** b;
 
     ~IMAGE();
 };

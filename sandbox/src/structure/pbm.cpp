@@ -1,6 +1,21 @@
 #include "pbm.hpp"
 
-PBM::PBM(char* data, int size){
+PBM::PBM(std::string filename){
+    std::ifstream image_file;
+    char* data;
+    int size;
+    image_file.open(filename, std::ios::in | std::ios::binary);
+    if (image_file.is_open()) {
+        // retrieving file size
+        image_file.seekg(0, std::ios::end);
+        std::streampos filesize = image_file.tellg();
+        image_file.seekg(0, std::ios::beg);
+
+        data = new char[filesize];
+        size = filesize;
+        image_file.read(data, filesize);
+        image_file.close();
+    }
     int pointer = 0;
     std::string signature = nextString(data, size, &pointer);
     int width = nextInt(data, size, &pointer);
@@ -10,12 +25,12 @@ PBM::PBM(char* data, int size){
     this->width = width;
     this->bitCount = 1;
     this->fileSize = size;
-    this->pixels = (ushort**) malloc(height*sizeof(ushort*));
+    this->pixels = (uchar**) malloc(height*sizeof(uchar*));
     for (int i = 0; i < height; i++){
-        this->pixels[i] = (ushort*) malloc(width*sizeof(ushort));
+        this->pixels[i] = (uchar*) malloc(width*sizeof(uchar));
     }
 
-    this->header = (char*) malloc(sizeof(short)*(pointer));
+    this->header = (char*) malloc(sizeof(char)*(pointer));
     this->headSize = pointer;
 
     for(int i = 0; i < pointer; i++){
@@ -25,7 +40,7 @@ PBM::PBM(char* data, int size){
         // ASCII
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-            ushort gray;
+            uchar gray;
             if (nextInt(data, size, &pointer) == 0)
                 gray = 255;
             else
@@ -42,7 +57,7 @@ PBM::PBM(char* data, int size){
                 pointer += 1;
             }
             for (int j = 0; j < width; j++) {
-                ushort byte = data[pointer];
+                uchar byte = data[pointer];
                 pixels[i][j] = (byte & (1 << bitPos)) ? 0 : 255;
                 if (bitPos == 0) {
                     bitPos = 7;

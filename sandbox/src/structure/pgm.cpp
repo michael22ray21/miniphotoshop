@@ -1,6 +1,21 @@
 #include "pgm.hpp"
 
-PGM::PGM(char* data, int size){
+PGM::PGM(std::string filename){
+    std::ifstream image_file;
+    char* data;
+    int size;
+    image_file.open(filename, std::ios::in | std::ios::binary);
+    if (image_file.is_open()) {
+        // retrieving file size
+        image_file.seekg(0, std::ios::end);
+        std::streampos filesize = image_file.tellg();
+        image_file.seekg(0, std::ios::beg);
+
+        data = new char[filesize];
+        size = filesize;
+        image_file.read(data, filesize);
+        image_file.close();
+    }
     int pointer = 0;
     std::string signature = nextString(data, size, &pointer);
     int width = nextInt(data, size, &pointer);
@@ -11,12 +26,12 @@ PGM::PGM(char* data, int size){
     this->width = width;
     this->bitCount = 8;
     this->fileSize = size;
-    this->pixels = (ushort**) malloc(height*sizeof(ushort*));
+    this->pixels = (uchar**) malloc(height*sizeof(uchar*));
     for (int i = 0; i < height; i++){
-        this->pixels[i] = (ushort*) malloc(width*sizeof(ushort));
+        this->pixels[i] = (uchar*) malloc(width*sizeof(uchar));
     }
 
-    this->header = (char*) malloc(sizeof(short)*(pointer));
+    this->header = (char*) malloc(sizeof(char)*(pointer));
     this->headSize = pointer;
 
     for(int i = 0; i < pointer; i++){
@@ -27,7 +42,7 @@ PGM::PGM(char* data, int size){
         // ASCII
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                ushort gray = (int) ((nextInt(data, size, &pointer) * 1.0 / maxValue) * 255) & 0xFF;
+                uchar gray = (int) ((nextInt(data, size, &pointer) * 1.0 / maxValue) * 255) & 0xFF;
                 pixels[i][j] = gray;
             }
         }
@@ -35,7 +50,7 @@ PGM::PGM(char* data, int size){
         // BINARY
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                ushort gray = data[pointer];
+                uchar gray = data[pointer];
                 pixels[i][j] = gray;
                 pointer += 1;
             }

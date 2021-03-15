@@ -1,6 +1,21 @@
 #include "ppm.hpp"
 
-PPM::PPM(char* data, int size){
+PPM::PPM(std::string filename){
+    std::ifstream image_file;
+    char* data;
+    int size;
+    image_file.open(filename, std::ios::in | std::ios::binary);
+    if (image_file.is_open()) {
+        // retrieving file size
+        image_file.seekg(0, std::ios::end);
+        std::streampos filesize = image_file.tellg();
+        image_file.seekg(0, std::ios::beg);
+
+        data = new char[filesize];
+        size = filesize;
+        image_file.read(data, filesize);
+        image_file.close();
+    }
     int pointer = 0;
     std::string signature = nextString(data, size, &pointer);
     int width = nextInt(data, size, &pointer);
@@ -11,12 +26,12 @@ PPM::PPM(char* data, int size){
     this->width = width;
     this->bitCount = 24;
     this->fileSize = size;
-    this->pixels = (ushort**) malloc(height*sizeof(ushort*));
+    this->pixels = (uchar**) malloc(height*sizeof(uchar*));
     for (int i = 0; i < height; i++){
-        this->pixels[i] = (ushort*) malloc(width*sizeof(ushort));
+        this->pixels[i] = (uchar*) malloc(width*sizeof(uchar));
     }
     
-    this->header = (char*) malloc(sizeof(short)*(pointer));
+    this->header = (char*) malloc(sizeof(char)*(pointer));
     this->headSize = pointer;
 
     for(int i = 0; i < pointer; i++){
