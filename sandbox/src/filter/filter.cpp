@@ -2,8 +2,7 @@
 #include "kernel.hpp"
 #include "strategy/strategy.hpp"
 
-Filter::Filter(KernelType kernelType) {
-  this->strategy = NULL;
+static void applyFilter(IMAGE* target, KernelType kernelType, Kernel strategy) {
   int group = checkKernelGroup(kernelType);
 
   /** Convolutional kernel **/
@@ -31,20 +30,20 @@ Filter::Filter(KernelType kernelType) {
     else if (kernelType == ROBERTS_2) { filename = "roberts2"; }
 
     Kernel kernel = loadKernel(filename);
-    this->strategy = new FilterConvolutionStrategy(kernel);
+    applyFilterConvolutionStrategy(target, kernel);
   }
-
   /** Non linear kernel **/
+
   else if (group == 0) {
     switch (kernelType) {
       case MEDIAN:
-        this->strategy = new FilterMedianStrategy(3);
+        applyFilterMedianStrategy(target, 3);
         break;
       case MAX:
-        this->strategy = new FilterMaxStrategy(3);
+        applyFilterMaxStrategy(target, 3);
         break;
       case MIN:
-        this->strategy = new FilterMinStrategy(3);
+        applyFilterMinStrategy(target, 3);
         break;
     }
   }
@@ -53,22 +52,14 @@ Filter::Filter(KernelType kernelType) {
   else if (group == 4) {
     switch(kernelType) {
       case UNSHARP:
-        this->strategy = new FilterUnsharpStrategy();
+        applyFilterUnsharpStrategy(target);
         break;
       case HIGHBOOST:
-        this->strategy = new FilterHighboostStrategy(2.4);
+        applyFilterHighboostStrategy(target, 2.4);
         break;
       case CANNY:
-        this->strategy = new FilterCannyStrategy();
+        applyFilterCannyStrategy(target);
         break;
     }
-  }
-}
-
-void Filter::apply(Image* target) {
-  if (this->strategy != NULL) {
-    this->strategy->apply(target);
-  } else {
-    std::cerr << "NULL Strategy" << std::endl;
   }
 }

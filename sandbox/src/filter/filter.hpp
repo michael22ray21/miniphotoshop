@@ -4,18 +4,8 @@
 #include "../structure/image.hpp"
 #include "strategy/strategy.hpp"
 #include "kernel.hpp"
+#include <fstream>
 
-class Filter {
-private:
-  FilterStrategyBase* strategy;
-public:
-  Filter(KernelType kernelType);
-
-  /**
-   * @method apply
-   * @param {Image*} target of the filter
-   */
-  void apply(IMAGE* target);
-};
+static void applyFilter(IMAGE* target, KernelType kernelType, Kernel strategy);
 
 #endif
