@@ -25,6 +25,7 @@ PGM::PGM(std::string filename) : IMAGE(filename){
     this->height = height;
     this->width = width;
     this->bitCount = 8;
+    this->depth = 1;
     this->fileSize = size;
     this->pixels = (uchar**) malloc(height*sizeof(uchar*));
     for (int i = 0; i < height; i++){
@@ -42,7 +43,8 @@ PGM::PGM(std::string filename) : IMAGE(filename){
         // ASCII
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                uchar gray = (int) ((nextInt(data, size, &pointer) * 1.0 / maxValue) * 255) & 0xFF;
+                // uchar gray = (int) ((nextInt(data, size, &pointer) * 1.0 / maxValue) * 255) & 0xFF;
+                uchar gray = nextInt(data, size, &pointer);
                 pixels[i][j] = gray;
             }
         }

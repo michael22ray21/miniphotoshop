@@ -3,7 +3,8 @@
 
 #include "../structure/image.hpp"
 
-void brighten(IMAGE* target, double multiplier);
+void brightenMul(IMAGE* target, double multiplier);
+void brightenAdd(IMAGE* target, double multiplier);
 void contrastStretch(IMAGE* target, int rMin, int rMax);
 void logTransform(IMAGE* target, double c);
 void inverseLog(IMAGE* target, double c);

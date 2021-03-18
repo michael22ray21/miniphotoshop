@@ -17,7 +17,7 @@ void applyFilterUnsharpStrategy(IMAGE* target){
   IMAGE* highPass = new IMAGE(*target);
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
-      if (highPass->rgbPixels == NULL){
+      if (highPass->depth == 1){
         highPass->pixels[i][j] = clip((int) target->pixels[i][j] - lowPass->pixels[i][j], 0, 255);
       }else{
         for (int k = 0; k < 3; k++){
@@ -29,7 +29,7 @@ void applyFilterUnsharpStrategy(IMAGE* target){
 
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
-      if (highPass->rgbPixels == NULL){
+      if (highPass->depth == 1){
         target->pixels[i][j] = clip((int) target->pixels[i][j] + highPass->pixels[i][j], 0, 255);
       }else{
         for (int k = 0; k < 3; k++){
@@ -57,7 +57,7 @@ void applyFilterHighboostStrategy(IMAGE* target, double alpha) {
 
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
-      if (target->rgbPixels == NULL){
+      if (target->depth == 1){
         std::vector<int> tempPixel;
         uchar targetPixel = target->pixels[i][j];
         uchar lowpassPixel = lowPass->pixels[i][j];
@@ -94,7 +94,7 @@ void applyFilterCannyStrategy(IMAGE* target) {
 
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
-      if (target->rgbPixels == NULL){
+      if (target->depth == 1){
         int magnitudeX = sobelX->pixels[i][j] * sobelX->pixels[i][j];
         int magnitudeY = sobelY->pixels[i][j] * sobelY->pixels[i][j];
         if (magnitudeX + magnitudeY > 128 * 128){

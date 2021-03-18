@@ -1,0 +1,6 @@
+#include "image.cpp"
+#include "bmp.cpp"
+#include "raw.cpp"
+#include "pbm.cpp"
+#include "pgm.cpp"
+#include "ppm.cpp"

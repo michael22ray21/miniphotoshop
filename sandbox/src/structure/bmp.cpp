@@ -38,13 +38,14 @@ BMP::BMP(std::string filename) : IMAGE(filename){
     this->width = width;
     this->bitCount = bitCount;
     this->fileSize = size;
+    this->depth = 3;
     this->rgbPixels = (uchar***) malloc(this->height*sizeof(uchar**));
-        for (int i = 0; i < this->height; i++){
-            this->rgbPixels[i] = (uchar**) malloc(this->width*sizeof(uchar*));
-            for (int j = 0; j < this->width; j++){
-                this->rgbPixels[i][j] = (uchar*) malloc(3*sizeof(uchar));
-            }
+    for (int i = 0; i < this->height; i++){
+        this->rgbPixels[i] = (uchar**) malloc(this->width*sizeof(uchar*));
+        for (int j = 0; j < this->width; j++){
+            this->rgbPixels[i][j] = (uchar*) malloc(3*sizeof(uchar));
         }
+    }
 
     this->header = (char*) malloc(sizeof(char)*(pointer));
     this->headSize = pointer;

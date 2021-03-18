@@ -8,7 +8,7 @@
 
 class IMAGE{
 public:
-    int width, height, bitCount, fileSize, headSize;
+    int width, height, bitCount, fileSize, headSize, depth;
     char* header;
     uchar** pixels;
     uchar*** rgbPixels;

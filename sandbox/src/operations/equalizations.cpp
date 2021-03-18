@@ -2,18 +2,15 @@
 #include "equalizations.hpp"
 #include "../utils/math.hpp"
 
-int** createHistogramDistribution(IMAGE* source) {
-    int depth = 0;
+int** createHistogram(IMAGE* source) {
     int** probs;
-    if (source->rgbPixels == NULL){
-        depth = 1;
+    if (source->depth == 1){
         probs = new int*[1];
         probs[0] = new int[256];
         for (int i = 0; i < 256; i++){
             probs[0][i] = 0;
         }
     } else {
-        depth = 3;
         probs = new int*[3];
         for (int k = 0; k < 3; k++){
             probs[k] = new int[256];
@@ -23,7 +20,46 @@ int** createHistogramDistribution(IMAGE* source) {
         }
     }
 
-    if (depth == 1){
+    if (source->depth == 1){
+        for (int i = 0; i < source->height; i++) {
+            for (int j = 0; j < source->width; j++) {
+                uchar px = source->pixels[i][j];
+                probs[0][px] += 1;
+            }
+        }
+    }else{
+        for (int i = 0; i < source->height; i++) {
+            for (int j = 0; j < source->width; j++) {
+                for (int k = 0; k < 3; k++){
+                    uchar rgb = source->rgbPixels[i][j][k];
+                    probs[k][rgb] += 1;
+                }
+            }
+        }
+    }
+  return probs;
+}
+
+
+int** createHistogramDistribution(IMAGE* source) {
+    int** probs;
+    if (source->depth == 1){
+        probs = new int*[1];
+        probs[0] = new int[256];
+        for (int i = 0; i < 256; i++){
+            probs[0][i] = 0;
+        }
+    } else {
+        probs = new int*[3];
+        for (int k = 0; k < 3; k++){
+            probs[k] = new int[256];
+            for (int i = 0; i < 256; i++){
+                probs[k][i] = 0;
+            }
+        }
+    }
+
+    if (source->depth == 1){
         for (int i = 0; i < source->height; i++) {
             for (int j = 0; j < source->width; j++) {
                 uchar px = source->pixels[i][j];
@@ -42,11 +78,10 @@ int** createHistogramDistribution(IMAGE* source) {
     }
 
     // questionable 
-    if (depth == 1){
+    if (source->depth == 1){
         for (int i = 1; i < 256; i++){
             probs[0][i] += probs[0][i-1];
         }
-        
     } else {
         for (int i = 1; i < 256; i++){
             for (int k = 0; k < 3; k++){
@@ -54,13 +89,12 @@ int** createHistogramDistribution(IMAGE* source) {
             }
         }
     }
-
   return probs;
 }
 
 void applyHistogramEqualization(IMAGE* target) {
     int pxlen = 0;
-    if (target->rgbPixels == NULL){
+    if (target->depth == 1){
         pxlen = 1;
     } else {
         pxlen = 3;
@@ -92,7 +126,7 @@ void applyHistogramEqualization(IMAGE* target) {
 
 void applyHistogramSpecification(IMAGE* target, IMAGE* specification) {
     int pxlen = 0;
-    if (target->rgbPixels == NULL){
+    if (target->depth == 1){
         pxlen = 1;
     } else {
         pxlen = 3;

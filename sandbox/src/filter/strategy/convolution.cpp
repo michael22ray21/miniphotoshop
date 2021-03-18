@@ -8,7 +8,7 @@ void applyFilterConvolutionStrategy(IMAGE* target, Kernel kernel) {
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
       std::vector<double> new_pixel;
-      if (target->rgbPixels == NULL){
+      if (target->depth == 1){
         new_pixel.push_back(0);
       } else {
         new_pixel.push_back(0);
@@ -23,7 +23,7 @@ void applyFilterConvolutionStrategy(IMAGE* target, Kernel kernel) {
           int i_target = std::max(0, std::min(target->height - 1, i + rowOffset + i_k));
           int j_target = std::max(0, std::min(target->width - 1, j + colOffset + j_k));
 
-          if (target->rgbPixels == NULL){
+          if (target->depth == 1){
             uchar px = temp->pixels[i_target][j_target];
             new_pixel[0] = clip((int) new_pixel[0] + px * kernel[i_k][j_k], 0, 255);            
           } else {
@@ -34,12 +34,12 @@ void applyFilterConvolutionStrategy(IMAGE* target, Kernel kernel) {
           }
         }
       }
-      if (target->pixels == NULL) {
+      if (target->depth == 3) {
           for (int k = 0; k < 3; k++){
-            target->rgbPixels[i][j][k] = (uchar) clip(round(new_pixel[k]), 0, 255);
+            target->rgbPixels[i][j][k] = (uchar) clip(new_pixel[k], 0, 255);
           }
       } else {
-          target->pixels[i][j] = (uchar) clip(round(new_pixel[0]), 0, 255);
+          target->pixels[i][j] = (uchar) clip(new_pixel[0], 0, 255);
       }
     }
   }

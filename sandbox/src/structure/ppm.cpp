@@ -26,6 +26,7 @@ PPM::PPM(std::string filename) : IMAGE(filename){
     this->height = height;
     this->width = width;
     this->bitCount = 24;
+    this->depth = 3;
     this->fileSize = size;
     this->rgbPixels = (uchar***) malloc(this->height*sizeof(uchar**));
     for (int i = 0; i < this->height; i++){
@@ -48,7 +49,7 @@ PPM::PPM(std::string filename) : IMAGE(filename){
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 for (int k = 0; k < 3; k++){
-                    this->rgbPixels[i][j][k] = (int) ((nextInt(data, size, &pointer) * 1.0 / maxValue) * 255) & 0xFF;
+                    this->rgbPixels[i][j][k] = nextInt(data, size, &pointer);
                 }
             }
         }

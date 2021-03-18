@@ -9,7 +9,7 @@ IMAGE::IMAGE(const IMAGE &image){
     this->height = image.height;
     this->width = image.width;
 
-    if (image.pixels == NULL){
+    if (image.depth == 3){
         this->rgbPixels = (uchar***) malloc(image.height*sizeof(uchar**));
         for (int i = 0; i < image.height; i++){
             this->rgbPixels[i] = (uchar**) malloc(image.width*sizeof(uchar*));
@@ -43,7 +43,7 @@ IMAGE::IMAGE(const IMAGE &image){
 };
 
 IMAGE::~IMAGE(){
-    if (this->pixels == NULL){
+    if (this->depth == 3){
         for (int i = 0; i < this->height; i++){
             for (int j = 0; j < this->width; j++){
                 free(this->rgbPixels[i][j]);

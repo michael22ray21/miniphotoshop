@@ -22,6 +22,7 @@ RAW::RAW(std::string filename) : IMAGE(filename){
     this->height = height;
     this->width = width;
     this->bitCount = 8;
+    this->depth = 1;
     this->fileSize = size;
     this->pixels = (uchar**) malloc(height*sizeof(uchar*));
     for (int i = 0; i < height; i++){

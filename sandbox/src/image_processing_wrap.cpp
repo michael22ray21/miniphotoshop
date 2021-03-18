@@ -2691,19 +2691,18 @@ SWIGINTERN PyObject *SWIG_PyStaticMethod_New(PyObject *SWIGUNUSEDPARM(self), PyO
 
 #define SWIGTYPE_p_BMP swig_types[0]
 #define SWIGTYPE_p_IMAGE swig_types[1]
-#define SWIGTYPE_p_Kernel swig_types[2]
-#define SWIGTYPE_p_PBM swig_types[3]
-#define SWIGTYPE_p_PGM swig_types[4]
-#define SWIGTYPE_p_PPM swig_types[5]
-#define SWIGTYPE_p_RAW swig_types[6]
-#define SWIGTYPE_p_char swig_types[7]
-#define SWIGTYPE_p_int swig_types[8]
-#define SWIGTYPE_p_p_int swig_types[9]
-#define SWIGTYPE_p_p_p_unsigned_char swig_types[10]
-#define SWIGTYPE_p_p_unsigned_char swig_types[11]
-#define SWIGTYPE_p_std__vectorT_std__vectorT_double_t_t swig_types[12]
-static swig_type_info *swig_types[14];
-static swig_module_info swig_module = {swig_types, 13, 0, 0, 0, 0};
+#define SWIGTYPE_p_PBM swig_types[2]
+#define SWIGTYPE_p_PGM swig_types[3]
+#define SWIGTYPE_p_PPM swig_types[4]
+#define SWIGTYPE_p_RAW swig_types[5]
+#define SWIGTYPE_p_char swig_types[6]
+#define SWIGTYPE_p_int swig_types[7]
+#define SWIGTYPE_p_p_int swig_types[8]
+#define SWIGTYPE_p_p_p_unsigned_char swig_types[9]
+#define SWIGTYPE_p_p_unsigned_char swig_types[10]
+#define SWIGTYPE_p_std__vectorT_std__vectorT_double_t_t swig_types[11]
+static swig_type_info *swig_types[13];
+static swig_module_info swig_module = {swig_types, 12, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3528,6 +3527,58 @@ SWIGINTERN PyObject *_wrap_IMAGE_headSize_get(PyObject *SWIGUNUSEDPARM(self), Py
   }
   arg1 = reinterpret_cast< IMAGE * >(argp1);
   result = (int) ((arg1)->headSize);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_IMAGE_depth_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  IMAGE *arg1 = (IMAGE *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "IMAGE_depth_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_IMAGE, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "IMAGE_depth_set" "', argument " "1"" of type '" "IMAGE *""'"); 
+  }
+  arg1 = reinterpret_cast< IMAGE * >(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "IMAGE_depth_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  if (arg1) (arg1)->depth = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_IMAGE_depth_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  IMAGE *arg1 = (IMAGE *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_IMAGE, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "IMAGE_depth_get" "', argument " "1"" of type '" "IMAGE *""'"); 
+  }
+  arg1 = reinterpret_cast< IMAGE * >(argp1);
+  result = (int) ((arg1)->depth);
   resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
@@ -5079,74 +5130,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_applyFilter(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  IMAGE *arg1 = (IMAGE *) 0 ;
-  KernelType arg2 ;
-  Kernel arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  void *argp3 ;
-  int res3 = 0 ;
-  PyObject *swig_obj[3] ;
-  
-  if (!SWIG_Python_UnpackTuple(args, "applyFilter", 3, 3, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_IMAGE, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "applyFilter" "', argument " "1"" of type '" "IMAGE *""'"); 
-  }
-  arg1 = reinterpret_cast< IMAGE * >(argp1);
-  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "applyFilter" "', argument " "2"" of type '" "KernelType""'");
-  } 
-  arg2 = static_cast< KernelType >(val2);
-  {
-    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_Kernel,  0  | 0);
-    if (!SWIG_IsOK(res3)) {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "applyFilter" "', argument " "3"" of type '" "Kernel""'"); 
-    }  
-    if (!argp3) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "applyFilter" "', argument " "3"" of type '" "Kernel""'");
-    } else {
-      Kernel * temp = reinterpret_cast< Kernel * >(argp3);
-      arg3 = *temp;
-      if (SWIG_IsNewObj(res3)) delete temp;
-    }
-  }
-  applyFilter(arg1,arg2,arg3);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_checkKernelGroup(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  KernelType arg1 ;
-  int val1 ;
-  int ecode1 = 0 ;
-  PyObject *swig_obj[1] ;
-  int result;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  ecode1 = SWIG_AsVal_int(swig_obj[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "checkKernelGroup" "', argument " "1"" of type '" "KernelType""'");
-  } 
-  arg1 = static_cast< KernelType >(val1);
-  result = (int)checkKernelGroup(arg1);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_loadKernel(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   std::string arg1 ;
@@ -5381,6 +5364,8 @@ static PyMethodDef SwigMethods[] = {
 	 { "IMAGE_fileSize_get", _wrap_IMAGE_fileSize_get, METH_O, NULL},
 	 { "IMAGE_headSize_set", _wrap_IMAGE_headSize_set, METH_VARARGS, NULL},
 	 { "IMAGE_headSize_get", _wrap_IMAGE_headSize_get, METH_O, NULL},
+	 { "IMAGE_depth_set", _wrap_IMAGE_depth_set, METH_VARARGS, NULL},
+	 { "IMAGE_depth_get", _wrap_IMAGE_depth_get, METH_O, NULL},
 	 { "IMAGE_header_set", _wrap_IMAGE_header_set, METH_VARARGS, NULL},
 	 { "IMAGE_header_get", _wrap_IMAGE_header_get, METH_O, NULL},
 	 { "IMAGE_pixels_set", _wrap_IMAGE_pixels_set, METH_VARARGS, NULL},
@@ -5434,8 +5419,6 @@ static PyMethodDef SwigMethods[] = {
 	 { "createHistogramDistribution", _wrap_createHistogramDistribution, METH_O, NULL},
 	 { "applyHistogramEqualization", _wrap_applyHistogramEqualization, METH_O, NULL},
 	 { "applyHistogramSpecification", _wrap_applyHistogramSpecification, METH_VARARGS, NULL},
-	 { "applyFilter", _wrap_applyFilter, METH_VARARGS, NULL},
-	 { "checkKernelGroup", _wrap_checkKernelGroup, METH_O, NULL},
 	 { "loadKernel", _wrap_loadKernel, METH_O, NULL},
 	 { "applyFilterUnsharpStrategy", _wrap_applyFilterUnsharpStrategy, METH_O, NULL},
 	 { "applyFilterHighboostStrategy", _wrap_applyFilterHighboostStrategy, METH_VARARGS, NULL},
@@ -5471,7 +5454,6 @@ static void *_p_PPMTo_p_IMAGE(void *x, int *SWIGUNUSEDPARM(newmemory)) {
 }
 static swig_type_info _swigt__p_BMP = {"_p_BMP", "BMP *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_IMAGE = {"_p_IMAGE", "IMAGE *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Kernel = {"_p_Kernel", "Kernel *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PBM = {"_p_PBM", "PBM *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PGM = {"_p_PGM", "PGM *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PPM = {"_p_PPM", "PPM *", 0, 0, (void*)0, 0};
@@ -5486,7 +5468,6 @@ static swig_type_info _swigt__p_std__vectorT_std__vectorT_double_t_t = {"_p_std_
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_BMP,
   &_swigt__p_IMAGE,
-  &_swigt__p_Kernel,
   &_swigt__p_PBM,
   &_swigt__p_PGM,
   &_swigt__p_PPM,
@@ -5501,7 +5482,6 @@ static swig_type_info *swig_type_initial[] = {
 
 static swig_cast_info _swigc__p_BMP[] = {  {&_swigt__p_BMP, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_IMAGE[] = {  {&_swigt__p_PBM, _p_PBMTo_p_IMAGE, 0, 0},  {&_swigt__p_PPM, _p_PPMTo_p_IMAGE, 0, 0},  {&_swigt__p_RAW, _p_RAWTo_p_IMAGE, 0, 0},  {&_swigt__p_IMAGE, 0, 0, 0},  {&_swigt__p_BMP, _p_BMPTo_p_IMAGE, 0, 0},  {&_swigt__p_PGM, _p_PGMTo_p_IMAGE, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Kernel[] = {  {&_swigt__p_Kernel, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PBM[] = {  {&_swigt__p_PBM, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PGM[] = {  {&_swigt__p_PGM, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PPM[] = {  {&_swigt__p_PPM, 0, 0, 0},{0, 0, 0, 0}};
@@ -5516,7 +5496,6 @@ static swig_cast_info _swigc__p_std__vectorT_std__vectorT_double_t_t[] = {  {&_s
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_BMP,
   _swigc__p_IMAGE,
-  _swigc__p_Kernel,
   _swigc__p_PBM,
   _swigc__p_PGM,
   _swigc__p_PPM,
@@ -6262,31 +6241,6 @@ SWIG_init(void) {
   
   SWIG_InstallConstants(d,swig_const_table);
   
-  SWIG_Python_SetConstant(d, "AVERAGE",SWIG_From_int(static_cast< int >(AVERAGE)));
-  SWIG_Python_SetConstant(d, "GAUSSIAN3",SWIG_From_int(static_cast< int >(GAUSSIAN3)));
-  SWIG_Python_SetConstant(d, "MEDIAN",SWIG_From_int(static_cast< int >(MEDIAN)));
-  SWIG_Python_SetConstant(d, "MAX",SWIG_From_int(static_cast< int >(MAX)));
-  SWIG_Python_SetConstant(d, "MIN",SWIG_From_int(static_cast< int >(MIN)));
-  SWIG_Python_SetConstant(d, "HIGH_A",SWIG_From_int(static_cast< int >(HIGH_A)));
-  SWIG_Python_SetConstant(d, "HIGH_B",SWIG_From_int(static_cast< int >(HIGH_B)));
-  SWIG_Python_SetConstant(d, "HIGH_C",SWIG_From_int(static_cast< int >(HIGH_C)));
-  SWIG_Python_SetConstant(d, "HIGH_D",SWIG_From_int(static_cast< int >(HIGH_D)));
-  SWIG_Python_SetConstant(d, "HIGH_E",SWIG_From_int(static_cast< int >(HIGH_E)));
-  SWIG_Python_SetConstant(d, "HIGH_F",SWIG_From_int(static_cast< int >(HIGH_F)));
-  SWIG_Python_SetConstant(d, "GRADIENT_X",SWIG_From_int(static_cast< int >(GRADIENT_X)));
-  SWIG_Python_SetConstant(d, "GRADIENT_Y",SWIG_From_int(static_cast< int >(GRADIENT_Y)));
-  SWIG_Python_SetConstant(d, "DERIV2",SWIG_From_int(static_cast< int >(DERIV2)));
-  SWIG_Python_SetConstant(d, "LAPLACE",SWIG_From_int(static_cast< int >(LAPLACE)));
-  SWIG_Python_SetConstant(d, "LOG",SWIG_From_int(static_cast< int >(LOG)));
-  SWIG_Python_SetConstant(d, "SOBEL_X",SWIG_From_int(static_cast< int >(SOBEL_X)));
-  SWIG_Python_SetConstant(d, "SOBEL_Y",SWIG_From_int(static_cast< int >(SOBEL_Y)));
-  SWIG_Python_SetConstant(d, "PREWITT_X",SWIG_From_int(static_cast< int >(PREWITT_X)));
-  SWIG_Python_SetConstant(d, "PREWITT_Y",SWIG_From_int(static_cast< int >(PREWITT_Y)));
-  SWIG_Python_SetConstant(d, "ROBERTS_1",SWIG_From_int(static_cast< int >(ROBERTS_1)));
-  SWIG_Python_SetConstant(d, "ROBERTS_2",SWIG_From_int(static_cast< int >(ROBERTS_2)));
-  SWIG_Python_SetConstant(d, "CANNY",SWIG_From_int(static_cast< int >(CANNY)));
-  SWIG_Python_SetConstant(d, "UNSHARP",SWIG_From_int(static_cast< int >(UNSHARP)));
-  SWIG_Python_SetConstant(d, "HIGHBOOST",SWIG_From_int(static_cast< int >(HIGHBOOST)));
 #if PY_VERSION_HEX >= 0x03000000
   return m;
 #else

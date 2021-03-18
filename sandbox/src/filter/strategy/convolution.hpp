@@ -4,6 +4,6 @@
 #include "../../structure/image.hpp"
 #include "../kernel.hpp"
 
-void applyFilterConvolutionStrategy(IMAGE* target, Kernel kernel);
+void applyFilterConvolutionStrategy(IMAGE* target, std::vector<std::vector<double>> kernel);
 
 #endif

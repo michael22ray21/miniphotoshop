@@ -2,10 +2,10 @@
 #include "../utils/math.hpp"
 #include <cmath>
 
-void brighten(IMAGE *target, double multiplier) {  
+void brightenMul(IMAGE *target, double multiplier) {  
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
-        if (target->rgbPixels == NULL){
+        if (target->depth == 1){
             target->pixels[i][j] = clip((int) target->pixels[i][j] * multiplier, 0, 255);
         } else {
             for (int k = 0; k < 3; k++){
@@ -16,9 +16,23 @@ void brighten(IMAGE *target, double multiplier) {
   }
 }
 
+void brightenAdd(IMAGE *target, int addition) {  
+  for (int i = 0; i < target->height; i++) {
+    for (int j = 0; j < target->width; j++) {
+        if (target->depth == 1){
+            target->pixels[i][j] = clip((int) target->pixels[i][j] + addition, 0, 255);
+        } else {
+            for (int k = 0; k < 3; k++){
+                target->rgbPixels[i][j][k] = clip((int) target->rgbPixels[i][j][k] + addition, 0, 255);
+            }
+        }
+    }
+  }
+}
+
 void contrastStretch(IMAGE* target, int rMin, int rMax) {
   int range = rMax - rMin, depth=0;
-  if (target->rgbPixels == NULL){
+  if (target->depth == 1){
     depth = 1;
   } else {
     depth = 3;
@@ -54,7 +68,7 @@ void contrastStretch(IMAGE* target, int rMin, int rMax) {
 
 void logTransform(IMAGE* target, double c) {
   int depth=0;
-  if (target->rgbPixels == NULL){
+  if (target->depth == 1){
     depth = 1;
   } else {
     depth = 3;
@@ -80,7 +94,7 @@ void logTransform(IMAGE* target, double c) {
 
 void inverseLog(IMAGE* target, double c) {
     int depth=0;
-    if (target->rgbPixels == NULL){
+    if (target->depth == 1){
         depth = 1;
     } else {
         depth = 3;
@@ -106,7 +120,7 @@ void inverseLog(IMAGE* target, double c) {
 void power(IMAGE* target, double c) {
   for (int i = 0; i < target->height; i++) {
     for (int j = 0; j < target->width; j++) {
-        if (target->rgbPixels == NULL){
+        if (target->depth == 1){
             uchar px = target->pixels[i][j];
             target->pixels[i][j] = clip(round((double) pow(px, c)), 0, 255);
         } else {
@@ -121,7 +135,7 @@ void power(IMAGE* target, double c) {
 
 void graySlicing(IMAGE* target, int rMin, int rMax) {
   int depth=0;
-    if (target->rgbPixels == NULL){
+    if (target->depth == 1){
         depth = 1;
     } else {
         depth = 3;
@@ -152,7 +166,7 @@ void graySlicing(IMAGE* target, int rMin, int rMax) {
 
 void bitSlicing(IMAGE* target, int bit) {
     int depth=0;
-    if (target->rgbPixels == NULL){
+    if (target->depth == 1){
         depth = 1;
     } else {
         depth = 3;

@@ -69,6 +69,7 @@ class IMAGE(object):
     bitCount = property(_image_processing.IMAGE_bitCount_get, _image_processing.IMAGE_bitCount_set)
     fileSize = property(_image_processing.IMAGE_fileSize_get, _image_processing.IMAGE_fileSize_set)
     headSize = property(_image_processing.IMAGE_headSize_get, _image_processing.IMAGE_headSize_set)
+    depth = property(_image_processing.IMAGE_depth_get, _image_processing.IMAGE_depth_set)
     header = property(_image_processing.IMAGE_header_get, _image_processing.IMAGE_header_set)
     pixels = property(_image_processing.IMAGE_pixels_get, _image_processing.IMAGE_pixels_set)
     rgbPixels = property(_image_processing.IMAGE_rgbPixels_get, _image_processing.IMAGE_rgbPixels_set)
@@ -204,37 +205,6 @@ def applyHistogramEqualization(target):
 
 def applyHistogramSpecification(target, specification):
     return _image_processing.applyHistogramSpecification(target, specification)
-
-def applyFilter(target, kernelType, strategy):
-    return _image_processing.applyFilter(target, kernelType, strategy)
-AVERAGE = _image_processing.AVERAGE
-GAUSSIAN3 = _image_processing.GAUSSIAN3
-MEDIAN = _image_processing.MEDIAN
-MAX = _image_processing.MAX
-MIN = _image_processing.MIN
-HIGH_A = _image_processing.HIGH_A
-HIGH_B = _image_processing.HIGH_B
-HIGH_C = _image_processing.HIGH_C
-HIGH_D = _image_processing.HIGH_D
-HIGH_E = _image_processing.HIGH_E
-HIGH_F = _image_processing.HIGH_F
-GRADIENT_X = _image_processing.GRADIENT_X
-GRADIENT_Y = _image_processing.GRADIENT_Y
-DERIV2 = _image_processing.DERIV2
-LAPLACE = _image_processing.LAPLACE
-LOG = _image_processing.LOG
-SOBEL_X = _image_processing.SOBEL_X
-SOBEL_Y = _image_processing.SOBEL_Y
-PREWITT_X = _image_processing.PREWITT_X
-PREWITT_Y = _image_processing.PREWITT_Y
-ROBERTS_1 = _image_processing.ROBERTS_1
-ROBERTS_2 = _image_processing.ROBERTS_2
-CANNY = _image_processing.CANNY
-UNSHARP = _image_processing.UNSHARP
-HIGHBOOST = _image_processing.HIGHBOOST
-
-def checkKernelGroup(kernelType):
-    return _image_processing.checkKernelGroup(kernelType)
 
 def loadKernel(filename):
     return _image_processing.loadKernel(filename)
