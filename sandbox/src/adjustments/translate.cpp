@@ -3,13 +3,13 @@
 void TranslateAdjustment::apply(IMAGE *target, int m, int n)
 {
   IMAGE *img = new IMAGE(*target);
-  int N = img->height, M = img->width;
+  int N = img->width, M = img->height;
 
   if (target->pixels != NULL)
   {
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < M; i++)
     {
-      for (int j = 0; j < M; j++)
+      for (int j = 0; j < N; j++)
       {
         int target_row = i - m, target_column = j - n;
         if (target_row >= M || target_row < 0 || target_column >= N || target_column < 0)
@@ -25,9 +25,9 @@ void TranslateAdjustment::apply(IMAGE *target, int m, int n)
   }
   else
   {
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < M; i++)
     {
-      for (int j = 0; j < M; j++)
+      for (int j = 0; j < N; j++)
       {
         int target_row = i - m, target_column = j - n;
         if (target_row >= M || target_row < 0 || target_column >= N || target_column < 0)

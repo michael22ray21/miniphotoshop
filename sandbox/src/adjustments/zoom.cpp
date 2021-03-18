@@ -3,16 +3,14 @@
 void ZoomAdjustment::zoomOut(IMAGE *target)
 {
   IMAGE *img = new IMAGE(*target);
-  int N = img->height, M = img->width;
+  int N = target->width, M = target->height;
 
-  int m, n;
-  m = 0;
-  n = 0;
+  int m = 0, n = 0;
   if (target->pixels != NULL)
   {
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < M; i++)
     {
-      for (int j = 0; j < M; j++)
+      for (int j = 0; j < N; j++)
       {
         if (m < M && n < N)
         {
@@ -29,9 +27,9 @@ void ZoomAdjustment::zoomOut(IMAGE *target)
   }
   else
   {
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < M; i++)
     {
-      for (int j = 0; j < M; j++)
+      for (int j = 0; j < N; j++)
       {
         if (m < M && n < N)
         {
@@ -53,18 +51,16 @@ void ZoomAdjustment::zoomOut(IMAGE *target)
 
 void ZoomAdjustment::zoomIn(IMAGE *target)
 {
-  int N = target->height, M = target->width;
+  int N = target->width, M = target->height;
 
   IMAGE *img = new IMAGE(*target);
-  int m, n;
-  m = 0;
-  n = 0;
+  int m = 0, n = 0;
   if (target->pixels != NULL)
   {
-    unsigned char temp[N / 2][M / 2];
-    for (int i = 0; i < N; i += 2)
+    uchar temp[N / 2][M / 2];
+    for (int i = 0; i < M; i += 2)
     {
-      for (int j = 0; j < M; j += 2)
+      for (int j = 0; j < N; j += 2)
       {
         int sum = 0;
         sum += target->pixels[i][j];
@@ -74,20 +70,20 @@ void ZoomAdjustment::zoomIn(IMAGE *target)
         temp[i / 2][j / 2] = sum / 4;
       }
     }
-    for (int i = 0; i < N / 2; i++)
+    for (int i = 0; i < M; i++)
     {
-      for (int j = 0; j < M / 2; j++)
+      for (int j = 0; j < N; j++)
       {
-        img->pixels[i][j] = temp[i][j];
+        img->pixels[i][j] = temp[i / 2][j / 2];
       }
     }
   }
   else
   {
     unsigned char temp[N / 2][M / 2][3];
-    for (int i = 0; i < N; i += 2)
+    for (int i = 0; i < M; i += 2)
     {
-      for (int j = 0; j < M; j += 2)
+      for (int j = 0; j < N; j += 2)
       {
         for (int k = 0; k < 3; k++)
         {
@@ -100,9 +96,9 @@ void ZoomAdjustment::zoomIn(IMAGE *target)
         }
       }
     }
-    for (int i = 0; i < N / 2; i++)
+    for (int i = 0; i < M / 2; i++)
     {
-      for (int j = 0; j < M / 2; j++)
+      for (int j = 0; j < N / 2; j++)
       {
         for (int k = 0; k < 3; k++)
         {

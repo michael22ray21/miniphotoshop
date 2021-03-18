@@ -33,6 +33,9 @@ void RotateAdjustment::rotate90CCW(IMAGE *target)
       }
     }
   }
+  int temp = target->width;
+  target->width = target->height;
+  target->height = temp;
   delete img;
 }
 
@@ -67,5 +70,8 @@ void RotateAdjustment::rotate90CW(IMAGE *target)
       }
     }
   }
+  int temp = target->width;
+  target->width = target->height;
+  target->height = temp;
   delete img;
 }
