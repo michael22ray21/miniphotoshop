@@ -23,9 +23,10 @@ void FlipAdjustment::verticalFlip(IMAGE *target)
     {
       for (int j = 0; j < M; j++)
       {
-        target->r[k][j] = img->r[i][j];
-        target->g[k][j] = img->g[i][j];
-        target->b[k][j] = img->b[i][j];
+        for (int k = 0; k < 3; k++)
+        {
+          target->rgbPixels[k][j][k] = img->rgbPixels[i][j][k];
+        }
       }
     }
   }
@@ -53,9 +54,10 @@ void FlipAdjustment::horizontalFlip(IMAGE *target)
     {
       for (int j = 0; j < M; j++)
       {
-        target->r[i][k - j] = img->r[i][j];
-        target->g[i][k - j] = img->g[i][j];
-        target->b[i][k - j] = img->b[i][j];
+        for (int k = 0; k < 3; k++)
+        {
+          target->rgbPixels[i][k - j][k] = img->rgbPixels[i][j][k];
+        }
       }
     }
   }

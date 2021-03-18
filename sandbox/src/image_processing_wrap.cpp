@@ -4837,7 +4837,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_brighten(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_brightenMul(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   IMAGE *arg1 = (IMAGE *) 0 ;
   double arg2 ;
@@ -4847,18 +4847,47 @@ SWIGINTERN PyObject *_wrap_brighten(PyObject *SWIGUNUSEDPARM(self), PyObject *ar
   int ecode2 = 0 ;
   PyObject *swig_obj[2] ;
   
-  if (!SWIG_Python_UnpackTuple(args, "brighten", 2, 2, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "brightenMul", 2, 2, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_IMAGE, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "brighten" "', argument " "1"" of type '" "IMAGE *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "brightenMul" "', argument " "1"" of type '" "IMAGE *""'"); 
   }
   arg1 = reinterpret_cast< IMAGE * >(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "brighten" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "brightenMul" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = static_cast< double >(val2);
-  brighten(arg1,arg2);
+  brightenMul(arg1,arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_brightenAdd(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  IMAGE *arg1 = (IMAGE *) 0 ;
+  double arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "brightenAdd", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_IMAGE, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "brightenAdd" "', argument " "1"" of type '" "IMAGE *""'"); 
+  }
+  arg1 = reinterpret_cast< IMAGE * >(argp1);
+  ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "brightenAdd" "', argument " "2"" of type '" "double""'");
+  } 
+  arg2 = static_cast< double >(val2);
+  brightenAdd(arg1,arg2);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -5409,7 +5438,8 @@ static PyMethodDef SwigMethods[] = {
 	 { "nextInt32", _wrap_nextInt32, METH_VARARGS, NULL},
 	 { "imageLoader", _wrap_imageLoader, METH_O, NULL},
 	 { "getFileSize", _wrap_getFileSize, METH_O, NULL},
-	 { "brighten", _wrap_brighten, METH_VARARGS, NULL},
+	 { "brightenMul", _wrap_brightenMul, METH_VARARGS, NULL},
+	 { "brightenAdd", _wrap_brightenAdd, METH_VARARGS, NULL},
 	 { "contrastStretch", _wrap_contrastStretch, METH_VARARGS, NULL},
 	 { "logTransform", _wrap_logTransform, METH_VARARGS, NULL},
 	 { "inverseLog", _wrap_inverseLog, METH_VARARGS, NULL},

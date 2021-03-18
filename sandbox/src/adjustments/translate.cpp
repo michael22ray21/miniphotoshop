@@ -32,15 +32,17 @@ void TranslateAdjustment::apply(IMAGE *target, int m, int n)
         int target_row = i - m, target_column = j - n;
         if (target_row >= M || target_row < 0 || target_column >= N || target_column < 0)
         {
-          target->r[i][j] = 0;
-          target->g[i][j] = 0;
-          target->b[i][j] = 0;
+          for (int k = 0; k < 3; k++)
+          {
+            target->rgbPixels[i][j][k] = 0;
+          }
         }
         else
         {
-          target->r[i][j] = img->r[target_row][target_column];
-          target->b[i][j] = img->b[target_row][target_column];
-          target->b[i][j] = img->b[target_row][target_column];
+          for (int k = 0; k < 3; k++)
+          {
+            target->rgbPixels[i][j][k] = img->rgbPixels[target_row][target_column][k];
+          }
         }
       }
     }

@@ -35,18 +35,13 @@ void ZoomAdjustment::zoomOut(IMAGE *target)
       {
         if (m < M && n < N)
         {
-          target->r[m][n] = img->r[i][j];
-          target->g[m][n] = img->g[i][j];
-          target->b[m][n] = img->b[i][j];
-          target->r[m][n + 1] = img->r[i][j];
-          target->g[m][n + 1] = img->g[i][j];
-          target->b[m][n + 1] = img->b[i][j];
-          target->r[m + 1][n] = img->r[i][j];
-          target->g[m + 1][n] = img->g[i][j];
-          target->b[m + 1][n] = img->b[i][j];
-          target->r[m + 1][n + 1] = img->r[i][j];
-          target->g[m + 1][n + 1] = img->g[i][j];
-          target->b[m + 1][n + 1] = img->b[i][j];
+          for (int k = 0; k < 3; k++)
+          {
+            target->rgbPixels[m][n][k] = img->rgbPixels[i][j][k];
+            target->rgbPixels[m][n + 1][k] = img->rgbPixels[i][j][k];
+            target->rgbPixels[m + 1][n][k] = img->rgbPixels[i][j][k];
+            target->rgbPixels[m + 1][n + 1][k] = img->rgbPixels[i][j][k];
+          }
           n += 2;
         }
       }
@@ -94,35 +89,25 @@ void ZoomAdjustment::zoomIn(IMAGE *target)
     {
       for (int j = 0; j < M; j += 2)
       {
-        int sum = 0;
-        sum += target->r[i][j];
-        sum += target->r[i][j + 1];
-        sum += target->r[i + 1][j];
-        sum += target->r[i + 1][j + 1];
-        temp[i / 2][j / 2][0] = sum / 4;
-
-        sum = 0;
-        sum += target->g[i][j];
-        sum += target->g[i][j + 1];
-        sum += target->g[i + 1][j];
-        sum += target->g[i + 1][j + 1];
-        temp[i / 2][j / 2][1] = sum / 4;
-
-        sum = 0;
-        sum += target->b[i][j];
-        sum += target->b[i][j + 1];
-        sum += target->b[i + 1][j];
-        sum += target->b[i + 1][j + 1];
-        temp[i / 2][j / 2][2] = sum / 4;
+        for (int k = 0; k < 3; k++)
+        {
+          int sum = 0;
+          sum += target->rgbPixels[i][j][k];
+          sum += target->rgbPixels[i][j + 1][k];
+          sum += target->rgbPixels[i + 1][j][k];
+          sum += target->rgbPixels[i + 1][j + 1][k];
+          temp[i / 2][j / 2][k] = sum / 4;
+        }
       }
     }
     for (int i = 0; i < N / 2; i++)
     {
       for (int j = 0; j < M / 2; j++)
       {
-        img->r[i][j] = temp[i][j][0];
-        img->g[i][j] = temp[i][j][1];
-        img->b[i][j] = temp[i][j][2];
+        for (int k = 0; k < 3; k++)
+        {
+          img->rgbPixels[i][j][k] = temp[i][j][k];
+        }
       }
     }
   }

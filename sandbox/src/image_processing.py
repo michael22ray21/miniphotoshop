@@ -176,8 +176,11 @@ def imageLoader(filename):
 def getFileSize(filename):
     return _image_processing.getFileSize(filename)
 
-def brighten(target, multiplier):
-    return _image_processing.brighten(target, multiplier)
+def brightenMul(target, multiplier):
+    return _image_processing.brightenMul(target, multiplier)
+
+def brightenAdd(target, multiplier):
+    return _image_processing.brightenAdd(target, multiplier)
 
 def contrastStretch(target, rMin, rMax):
     return _image_processing.contrastStretch(target, rMin, rMax)

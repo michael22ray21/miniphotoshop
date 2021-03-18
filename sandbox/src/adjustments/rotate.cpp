@@ -4,7 +4,7 @@ void RotateAdjustment::rotate90CCW(IMAGE *target)
 {
   IMAGE *img = new IMAGE(*target);
   int N = img->height, M = img->width;
-  int k;
+  int k = 0;
 
   if (target->pixels != NULL)
   {
@@ -22,11 +22,14 @@ void RotateAdjustment::rotate90CCW(IMAGE *target)
   {
     for (int i = 0; i < N; i++)
     {
+      k = M - 1;
       for (int j = 0; j < M; j++)
       {
-        target->r[k][i] = img->r[i][j];
-        target->g[k][i] = img->g[i][j];
-        target->b[k][i] = img->b[i][j];
+        for (int p = 0; p < 3; p++)
+        {
+          target->rgbPixels[k][i][p] = img->rgbPixels[i][j][p];
+        }
+        k--;
       }
     }
   }
@@ -56,9 +59,11 @@ void RotateAdjustment::rotate90CW(IMAGE *target)
     {
       for (int j = 0; j < M; j++)
       {
-        target->r[j][k] = img->r[i][j];
-        target->g[j][k] = img->g[i][j];
-        target->b[j][k] = img->b[i][j];
+        for (int p = 0; p < 3; p++)
+        {
+          target->rgbPixels[j][k][p] = img->rgbPixels[i][j][p];
+        }
+      k--;
       }
     }
   }

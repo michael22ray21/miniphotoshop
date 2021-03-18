@@ -8,9 +8,10 @@ void BrighteningAdjustment::apply(IMAGE *target, int b)
         {
             for (int j = 0; j < target->width; j++)
             {
-                target->r[i][j] += b;
-                target->g[i][j] += b;
-                target->b[i][j] += b;
+                for (int k = 0; k < 3; k++)
+                    {
+                        target->rgbPixels[i][j][k] += b;
+                    }
             }
         }
     }

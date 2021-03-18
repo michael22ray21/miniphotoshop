@@ -1,7 +1,7 @@
 #include "substraction.hpp"
 #include "../utils/math.hpp"
 
-void apply(IMAGE *image1, IMAGE *image2)
+void SubstractionAdjustment::apply(IMAGE *image1, IMAGE *image2)
 {
     if (image1->height == image2->height && image1->width == image2->width)
     {
@@ -11,9 +11,10 @@ void apply(IMAGE *image1, IMAGE *image2)
             {
                 for (int j = 0; j < image1->width; j++)
                 {
-                    image1->r[i][j] = image1->r[i][j] - image2->r[i][j] != 0 ? 255 : 0;
-                    image1->g[i][j] = image1->g[i][j] - image2->g[i][j] != 0 ? 255 : 0;
-                    image1->b[i][j] = image1->b[i][j] - image2->b[i][j] != 0 ? 255 : 0;
+                    for (int k = 0; k < 3; k++)
+                    {
+                        image1->rgbPixels[i][j][k] = image1->rgbPixels[i][j][k] - image2->rgbPixels[i][j][k] != 0 ? 255 : 0;
+                    }
                 }
             }
         }
